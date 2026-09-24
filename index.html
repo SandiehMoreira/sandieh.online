@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sandieh Moreira — Técnico de Celular & Desenvolvedor</title>
+  <meta name="description" content="Sandieh Moreira: técnico especialista em iPhone e Android, desenvolvedor de sites, apps e softwares em Curitiba." />
+  <meta name="theme-color" content="#05070a" />
+  <meta property="og:title" content="Sandieh Moreira — Tech Multiclasse" />
+  <meta property="og:description" content="Assistência técnica iOS e Android + desenvolvimento de sites, apps e softwares. Curitiba/PR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%2305070a'/><text x='50%' y='58%' text-anchor='middle' font-family='monospace' font-size='30' font-weight='700' fill='%2300ff9c'>S_</text></svg>" />
+</head>
+<body class="is-loading">
+
+  <!-- ============ BOOT SCREEN ============ -->
+  <div id="intro" aria-hidden="true">
+    <div class="intro-slices">
+      <i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i>
+      <i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i>
+    </div>
+    <canvas id="intro-fx"></canvas>
+    <div class="intro-flash"></div>
+
+    <div class="intro-hud">
+      <span class="ih-corner tl"></span><span class="ih-corner tr"></span>
+      <span class="ih-corner bl"></span><span class="ih-corner br"></span>
+      <p class="ih-rec"><i></i> REC <span id="intro-clock">00:00:00</span></p>
+      <div class="ih-load"><span>SYS.LOAD</span><b id="intro-pct">000%</b><div><i id="intro-bar"></i></div></div>
+    </div>
+
+    <pre class="intro-term" id="intro-term"></pre>
+
+    <div class="intro-center" id="intro-center">
+      <p class="intro-kicker" id="intro-kicker">// descriptografando identidade</p>
+      <div class="intro-name" id="intro-name" data-text=""></div>
+      <div class="intro-granted" id="intro-granted">ACCESS GRANTED</div>
+      <p class="intro-sub" id="intro-sub"></p>
+      <p class="intro-ready" id="intro-ready">▶ PLAYER 1 READY</p>
+    </div>
+
+    <button class="intro-skip" id="intro-skip" type="button">PULAR INTRO ▸▸</button>
+  </div>
+
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="#inicio" class="logo" aria-label="Início">
+      <span class="logo-bracket">[</span>SM<span class="blink">_</span><span class="logo-bracket">]</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#perfil"><span>01</span>Perfil</a>
+      <a href="#skills"><span>02</span>Skills</a>
+      <a href="#servicos"><span>03</span>Serviços</a>
+      <a href="#projetos"><span>04</span>Projetos</a>
+      <a href="#jornada"><span>05</span>Jornada</a>
+      <a href="#loadout"><span>06</span>Loadout</a>
+      <a href="#contato" class="nav-cta">Contato</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="inicio" class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-tag reveal"><span class="dot"></span> PLAYER ONLINE · CURITIBA/PR</p>
+        <h1 class="glitch reveal" data-text="SANDIEH MOREIRA">SANDIEH MOREIRA</h1>
+        <p class="hero-role reveal">
+          <span class="prompt">root@sandieh:~$</span>
+          <span id="typed"></span><span class="caret">█</span>
+        </p>
+        <p class="hero-sub reveal">
+          Eu conserto o que você carrega no bolso e crio o que você ainda vai usar.
+          Especialista em <strong>iPhone</strong>, técnico <strong>Android</strong>
+          e desenvolvedor de <strong>sites, apps e softwares</strong>.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#servicos" class="btn btn-primary"><span>Ver serviços</span></a>
+          <a href="#contato" class="btn btn-ghost"><span>Pedir orçamento</span></a>
+        </div>
+      </div>
+
+      <aside class="hero-card reveal" data-tilt>
+        <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+        <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+        <p class="hud-title">// PLAYER_CARD.exe</p>
+        <div class="avatar">
+          <div class="avatar-ring"></div>
+          <img src="img/sandieh.jpg" alt="Foto de Sandieh Moreira" width="296" height="296" />
+          <span class="avatar-status">ONLINE</span>
+        </div>
+        <ul class="hud-stats">
+          <li><span>NOME</span><b>Sandieh Moreira</b></li>
+          <li><span>CLASSE</span><b>Tech Multiclasse</b></li>
+          <li><span>NÍVEL</span><b id="level">--</b></li>
+          <li><span>ORIGEM</span><b>Imbaú · PR</b></li>
+          <li><span>BASE</span><b>Curitiba · PR</b></li>
+          <li><span>STATUS</span><b class="ok">Disponível p/ missões</b></li>
+        </ul>
+        <div class="hud-bars">
+          <div><span>HP</span><i style="--v:100%"></i></div>
+          <div><span>MP</span><i style="--v:92%"></i></div>
+          <div><span>XP</span><i style="--v:78%"></i></div>
+        </div>
+      </aside>
+
+      <a href="#perfil" class="scroll-hint" aria-label="Rolar para baixo">
+        <span>SCROLL</span><i></i>
+      </a>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>iPhone</span><span>Android</span><span>Troca de tela</span><span>Bateria</span><span>Placa</span>
+        <span>Sites</span><span>Apps</span><span>Softwares</span><span>Cibersegurança</span><span>JavaScript</span>
+        <span>iPhone</span><span>Android</span><span>Troca de tela</span><span>Bateria</span><span>Placa</span>
+        <span>Sites</span><span>Apps</span><span>Softwares</span><span>Cibersegurança</span><span>JavaScript</span>
+      </div>
+    </div>
+
+    <!-- ============ PERFIL ============ -->
+    <section id="perfil" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">01</span>
+        <h2>Perfil do <em>player</em></h2>
+        <p class="section-cmd">$ cat sobre_mim.txt</p>
+      </header>
+
+      <div class="perfil-grid">
+        <div class="perfil-text">
+          <p class="reveal">
+            Sou <strong>Sandieh Moreira</strong>, nascido em <strong>fevereiro de 1998</strong> em
+            Telêmaco Borba e criado em <strong>Imbaú</strong>, no interior do Paraná. Hoje moro em
+            <strong>Curitiba</strong>, onde transformei a curiosidade por tecnologia em profissão.
+          </p>
+          <p class="reveal">
+            No dia a dia sou <strong>técnico de celular</strong>, com especialidade em
+            <strong>iPhone</strong>: diagnóstico, troca de peças e reparo com cuidado de quem
+            entende o aparelho por dentro. Em paralelo, sou <strong>programador</strong> e desenvolvo
+            sites, aplicativos e softwares sob medida.
+          </p>
+          <p class="reveal">
+            Estudo <strong>cibersegurança</strong> para entender como os ataques
+            funcionam e saber me proteger, e proteger quem confia em mim. Esse olhar
+            vai para cada projeto que entrego.
+          </p>
+          <p class="reveal">
+            Fora do trabalho: sou <strong>casado</strong> e <strong>pai de uma filha</strong>,
+            membro da <strong>Igreja Batista Alameda</strong>, guitarrista nas horas vagas e gamer de PC.
+          </p>
+        </div>
+
+        <div class="perfil-attrs">
+          <div class="attr reveal" data-tilt>
+            <span class="attr-icon">⚙</span>
+            <h3>Hardware</h3>
+            <p>Mãos treinadas em placa, tela, bateria e conectores.</p>
+          </div>
+          <div class="attr reveal" data-tilt>
+            <span class="attr-icon">&lt;/&gt;</span>
+            <h3>Software</h3>
+            <p>Código limpo para web, mobile e desktop.</p>
+          </div>
+          <div class="attr reveal" data-tilt>
+            <span class="attr-icon">⛨</span>
+            <h3>Segurança</h3>
+            <p>Mentalidade de quem sabe como se ataca, para defender melhor.</p>
+          </div>
+          <div class="attr reveal" data-tilt>
+            <span class="attr-icon">♥</span>
+            <h3>Valores</h3>
+            <p>Família, fé e honestidade em cada orçamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">02</span>
+        <h2>Árvore de <em>skills</em></h2>
+        <p class="section-cmd">$ ./skills --list --verbose</p>
+      </header>
+
+      <div class="skills-grid">
+        <div class="skill-tree reveal">
+          <h3><span class="tag tag-green">BRANCH</span> Assistência técnica</h3>
+          <ul class="skill-list">
+            <li><span>Reparo de iPhone</span><div class="xp" style="--v:95%"><i></i></div><b>LV MAX</b></li>
+            <li><span>Reparo Android</span><div class="xp" style="--v:88%"><i></i></div><b>LV 9</b></li>
+            <li><span>Diagnóstico de placa</span><div class="xp" style="--v:82%"><i></i></div><b>LV 8</b></li>
+            <li><span>Troca de tela e bateria</span><div class="xp" style="--v:96%"><i></i></div><b>LV MAX</b></li>
+            <li><span>Software / desbloqueios legais</span><div class="xp" style="--v:85%"><i></i></div><b>LV 8</b></li>
+          </ul>
+        </div>
+
+        <div class="skill-tree reveal">
+          <h3><span class="tag tag-cyan">BRANCH</span> Desenvolvimento</h3>
+          <ul class="skill-list">
+            <li><span>Sites e landing pages</span><div class="xp" style="--v:90%"><i></i></div><b>LV 9</b></li>
+            <li><span>Aplicativos mobile</span><div class="xp" style="--v:80%"><i></i></div><b>LV 8</b></li>
+            <li><span>Softwares e sistemas</span><div class="xp" style="--v:80%"><i></i></div><b>LV 8</b></li>
+            <li><span>UI / UX</span><div class="xp" style="--v:78%"><i></i></div><b>LV 7</b></li>
+            <li><span>APIs e integrações</span><div class="xp" style="--v:76%"><i></i></div><b>LV 7</b></li>
+          </ul>
+        </div>
+
+        <div class="skill-tree reveal">
+          <h3><span class="tag tag-mag">BRANCH</span> Cibersegurança</h3>
+          <ul class="skill-list">
+            <li><span>Proteção contra ataques</span><div class="xp" style="--v:70%"><i></i></div><b>LV 7</b></li>
+            <li><span>Hardening de dispositivos</span><div class="xp" style="--v:80%"><i></i></div><b>LV 8</b></li>
+            <li><span>Redes e protocolos</span><div class="xp" style="--v:68%"><i></i></div><b>LV 6</b></li>
+            <li><span>Privacidade de dados</span><div class="xp" style="--v:82%"><i></i></div><b>LV 8</b></li>
+          </ul>
+        </div>
+
+        <div class="stack reveal">
+          <h3>// stack & ferramentas</h3>
+          <div class="chips">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>TypeScript</span>
+            <span>React</span><span>Node.js</span><span>React Native</span><span>Python</span>
+            <span>SQL</span><span>Git</span><span>Linux</span><span>Kali</span>
+            <span>Microscópio</span><span>Estação de solda</span><span>Multímetro</span><span>3uTools</span>
+          </div>
+          <p class="stack-note">* ajuste esta lista com as ferramentas que você usa de verdade</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS (scroll horizontal) ============ -->
+    <section id="servicos" class="services">
+      <div class="services-sticky">
+        <header class="section-head services-head">
+          <span class="section-num">03</span>
+          <h2>Escolha sua <em>missão</em></h2>
+          <p class="section-cmd">$ ./servicos --disponiveis</p>
+        </header>
+
+        <div class="services-track" id="services-track">
+          <article class="mission" data-tilt>
+            <p class="mission-rank">MISSÃO · 01</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4"/><circle cx="12" cy="18" r="1"/></svg>
+            </div>
+            <h3>Assistência iPhone</h3>
+            <p>Especialidade da casa. Reparo com peças de qualidade e diagnóstico transparente.</p>
+            <ul>
+              <li>Troca de tela e vidro</li>
+              <li>Bateria e conector de carga</li>
+              <li>Face ID, câmeras e áudio</li>
+              <li>Reparo de placa</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Assistência iPhone">Aceitar missão →</a>
+          </article>
+
+          <article class="mission" data-tilt>
+            <p class="mission-rank">MISSÃO · 02</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 18h14"/><path d="M9 5l-1.5-2M15 5l1.5-2"/></svg>
+            </div>
+            <h3>Assistência Android</h3>
+            <p>Samsung, Motorola, Xiaomi e outras marcas, com o mesmo padrão de cuidado.</p>
+            <ul>
+              <li>Tela, bateria e conectores</li>
+              <li>Formatação e atualização</li>
+              <li>Recuperação de sistema</li>
+              <li>Limpeza e oxidação</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Assistência Android">Aceitar missão →</a>
+          </article>
+
+          <article class="mission" data-tilt>
+            <p class="mission-rank">MISSÃO · 03</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 8h20"/><path d="M8 21h8M12 18v3"/></svg>
+            </div>
+            <h3>Criação de sites</h3>
+            <p>Sites modernos, rápidos e responsivos que fazem seu negócio aparecer.</p>
+            <ul>
+              <li>Landing pages</li>
+              <li>Sites institucionais</li>
+              <li>Portfólios e catálogos</li>
+              <li>SEO e performance</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Criação de site">Aceitar missão →</a>
+          </article>
+
+          <article class="mission" data-tilt>
+            <p class="mission-rank">MISSÃO · 04</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><rect x="9.5" y="6" width="5" height="5" rx="1"/><path d="M9.5 14h5M9.5 17h3"/></svg>
+            </div>
+            <h3>Aplicativos</h3>
+            <p>Apps para Android e iOS, do protótipo à publicação nas lojas.</p>
+            <ul>
+              <li>Apps para empresas</li>
+              <li>Agendamento e pedidos</li>
+              <li>Integração com APIs</li>
+              <li>Publicação nas lojas</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Desenvolvimento de app">Aceitar missão →</a>
+          </article>
+
+          <article class="mission" data-tilt>
+            <p class="mission-rank">MISSÃO · 05</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+            </div>
+            <h3>Softwares e sistemas</h3>
+            <p>Programas sob medida para automatizar e organizar o seu negócio.</p>
+            <ul>
+              <li>Sistemas de gestão</li>
+              <li>Controle de estoque e OS</li>
+              <li>Automações</li>
+              <li>Painéis e relatórios</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Software / sistema">Aceitar missão →</a>
+          </article>
+
+          <article class="mission mission-boss" data-tilt>
+            <p class="mission-rank">⚠ MISSÃO ESPECIAL</p>
+            <div class="mission-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <h3>Segurança digital</h3>
+            <p>Orientação para proteger seu celular, suas contas e seus dados.</p>
+            <ul>
+              <li>Revisão de segurança do aparelho</li>
+              <li>Autenticação em 2 fatores</li>
+              <li>Backup e privacidade</li>
+              <li>Dicas contra golpes</li>
+            </ul>
+            <a href="#contato" class="mission-cta" data-service="Segurança digital">Aceitar missão →</a>
+          </article>
+        </div>
+
+        <div class="services-progress" aria-hidden="true"><span id="services-bar"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESSO ============ -->
+    <section class="section process">
+      <header class="section-head reveal">
+        <span class="section-num">&gt;&gt;</span>
+        <h2>Como funciona</h2>
+        <p class="section-cmd">$ ./start_quest.sh</p>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><b>01</b><h3>Contato</h3><p>Você me chama e conta o problema ou a ideia.</p></li>
+        <li class="reveal"><b>02</b><h3>Diagnóstico</h3><p>Analiso o aparelho ou o projeto e explico tudo de forma clara.</p></li>
+        <li class="reveal"><b>03</b><h3>Orçamento</h3><p>Preço justo e prazo definido antes de começar.</p></li>
+        <li class="reveal"><b>04</b><h3>Entrega</h3><p>Missão concluída, com garantia e suporte.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ PROJETOS ============ -->
+    <section id="projetos" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">04</span>
+        <h2>Save <em>files</em></h2>
+        <p class="section-cmd">$ git clone github.com/SandiehMoreira</p>
+      </header>
+
+      <div class="projects-grid" id="projects-grid" aria-live="polite">
+        <!-- preenchido pelo script.js com os repositórios do GitHub -->
+      </div>
+
+      <a href="https://github.com/SandiehMoreira" target="_blank" rel="noopener" class="github-cta reveal">
+        <div class="github-cta-info">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+          <div>
+            <small>// REPOSITÓRIO COMPLETO</small>
+            <b>github.com/SandiehMoreira</b>
+          </div>
+        </div>
+        <span class="github-cta-go">Ver todos os projetos →</span>
+      </a>
+    </section>
+
+    <!-- ============ JORNADA ============ -->
+    <section id="jornada" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">05</span>
+        <h2>Jornada <em>(save points)</em></h2>
+        <p class="section-cmd">$ git log --oneline --reverse</p>
+      </header>
+
+      <div class="timeline">
+        <div class="timeline-line"><span id="timeline-fill"></span></div>
+
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">FEV · 1998</p>
+          <h3>Player spawn</h3>
+          <p>Nasce em Telêmaco Borba e cresce em Imbaú, no interior do Paraná.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">TUTORIAL</p>
+          <h3>Primeiro contato com tecnologia</h3>
+          <p>A curiosidade de abrir, entender e consertar as coisas vira paixão.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">LEVEL UP</p>
+          <h3>Técnico de celular</h3>
+          <p>Começa na assistência técnica e se especializa em iPhone.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">NOVA CLASSE</p>
+          <h3>Programador</h3>
+          <p>Passa a desenvolver sites, apps e softwares. Nasce o lado dev.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">NOVO MAPA</p>
+          <h3>Curitiba</h3>
+          <p>Muda para a capital com a família e amplia os horizontes.</p>
+        </div>
+        <div class="checkpoint reveal current">
+          <span class="cp-dot"></span>
+          <p class="cp-date">AGORA</p>
+          <h3>Tech multiclasse</h3>
+          <p>Hardware, software e segurança, pronto para a sua próxima missão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOADOUT ============ -->
+    <section id="loadout" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">06</span>
+        <h2>Loadout <em>pessoal</em></h2>
+        <p class="section-cmd">$ inventory --show</p>
+      </header>
+
+      <div class="loadout-grid">
+        <div class="item item-big reveal" data-tilt>
+          <p class="item-rarity legendary">LENDÁRIO</p>
+          <span class="item-icon">♥</span>
+          <h3>Família</h3>
+          <p>Minha esposa e minha filha. O motivo de cada missão.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity epic">ÉPICO</p>
+          <span class="item-icon">✝</span>
+          <h3>Fé</h3>
+          <p>Membro da Igreja Batista Alameda.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity rare">RARO</p>
+          <span class="item-icon">🎸</span>
+          <h3>Guitarra</h3>
+          <p>Riffs em casa para recarregar a energia.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity rare">RARO</p>
+          <span class="item-icon">🖥</span>
+          <h3>PC gamer</h3>
+          <p>Setup montado para jogar e para programar.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity epic">ÉPICO</p>
+          <span class="item-icon">⌨</span>
+          <h3>Terminal</h3>
+          <p>Onde o conhecimento em segurança é treinado, sempre de forma ética.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section id="contato" class="section contact">
+      <header class="section-head reveal">
+        <span class="section-num">07</span>
+        <h2>Iniciar <em>conexão</em></h2>
+        <p class="section-cmd">$ ssh cliente@sandieh --orcamento</p>
+      </header>
+
+      <div class="contact-grid">
+        <form class="terminal reveal" id="contact-form">
+          <div class="terminal-bar"><i></i><i></i><i></i><span>nova_missao.sh</span></div>
+          <div class="terminal-body">
+            <label>
+              <span>&gt; nome:</span>
+              <input type="text" name="nome" required placeholder="seu nome" autocomplete="name" />
+            </label>
+            <label>
+              <span>&gt; serviço:</span>
+              <select name="servico" id="servico">
+                <option>Assistência iPhone</option>
+                <option>Assistência Android</option>
+                <option>Criação de site</option>
+                <option>Desenvolvimento de app</option>
+                <option>Software / sistema</option>
+                <option>Segurança digital</option>
+                <option>Outro</option>
+              </select>
+            </label>
+            <label>
+              <span>&gt; mensagem:</span>
+              <textarea name="mensagem" rows="4" required placeholder="modelo do aparelho, problema ou ideia do projeto..."></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary"><span>Enviar ▶</span></button>
+            <p class="form-note" id="form-note">Sua mensagem abre direto no WhatsApp.</p>
+          </div>
+        </form>
+
+        <div class="contact-links reveal">
+          <a class="contact-link" data-link="whatsapp" href="#" target="_blank" rel="noopener">
+            <span>WhatsApp</span><b data-label="whatsapp">configure no script.js</b>
+          </a>
+          <a class="contact-link" data-link="email" href="#">
+            <span>E-mail</span><b data-label="email"></b>
+          </a>
+          <a class="contact-link" data-link="instagram" href="#" target="_blank" rel="noopener">
+            <span>Instagram</span><b data-label="instagram">configure no script.js</b>
+          </a>
+          <a class="contact-link" data-link="github" href="#" target="_blank" rel="noopener">
+            <span>GitHub</span><b data-label="github">configure no script.js</b>
+          </a>
+          <div class="contact-loc">
+            <span>LOCALIZAÇÃO</span>
+            <b>Curitiba · Paraná · Brasil</b>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Sandieh Moreira · Feito com código, café e fé.</p>
+    <p class="footer-hint">
+      psst… jogou San Andreas? Digite <kbd>ROCKETMAN</kbd> no teclado, sem clicar em nada, e ganhe um jetpack 🚀
+      <span class="footer-hint-mobile">No celular: toque 5x rápido no logo <b>[SM_]</b> lá em cima.</span>
+    </p>
+    <button type="button" class="footer-cheats" id="open-cheats">🎮 Lista de cheats · GTA San Andreas</button>
+  </footer>
+
+  <!-- ============ GTA SAN ANDREAS (cheats) ============ -->
+  <div class="sa-weather" id="sa-weather" aria-hidden="true"></div>
+  <div class="sa-police" aria-hidden="true"></div>
+  <div class="sa-speedlines" aria-hidden="true"></div>
+  <div class="sa-toast" id="sa-toast" role="status" aria-live="polite">Cheat activated</div>
+  <div class="sa-hud" id="sa-hud" aria-hidden="true">
+    <div class="sa-weapon"><span id="sa-wicon">👊</span><small id="sa-ammo"></small></div>
+    <div class="sa-stats">
+      <div class="sa-bar sa-armor"><i></i></div>
+      <div class="sa-bar sa-health"><i></i></div>
+      <div class="sa-money" id="sa-money">$00000000</div>
+      <div class="sa-stars" id="sa-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    </div>
+  </div>
+  <div class="sa-vname" id="sa-vname" aria-hidden="true"></div>
+  <div class="sa-wasted" id="sa-wasted" aria-hidden="true"><span>wasted</span></div>
+  <div class="sa-rocket" id="sa-rocket" aria-hidden="true">🚀</div>
+
+  <div class="sa-modal" id="sa-modal" role="dialog" aria-modal="true" aria-labelledby="sa-modal-title" hidden>
+    <div class="sa-modal-box">
+      <header>
+        <h2 id="sa-modal-title">Cheats · <em>San Andreas</em></h2>
+        <button type="button" class="sa-close" id="sa-close" aria-label="Fechar">✕</button>
+      </header>
+      <p class="sa-help">
+        Digite o <b>código de PC</b> em qualquer lugar da página, faça o <b>combo no controle</b> de PS/Xbox
+        ou <b>toque no cheat</b> abaixo.
+      </p>
+      <p class="sa-keys">
+        Combo no teclado: <kbd>↑↓←→</kbd> direcional · <kbd>O</kbd> ○ · <kbd>Q</kbd> □ · <kbd>T</kbd> △ · <kbd>X</kbd> ✕ ·
+        <kbd>1</kbd> L1 · <kbd>2</kbd> L2 · <kbd>3</kbd> R1 · <kbd>4</kbd> R2
+      </p>
+      <input type="search" class="sa-search" id="sa-search" placeholder="buscar cheat..." aria-label="Buscar cheat" />
+      <ul class="sa-list" id="sa-list"></ul>
+    </div>
+  </div>
+
+  <div class="achievement" id="achievement" role="status" aria-live="polite">
+    <span class="ach-icon">🏆</span>
+    <div><small>CONQUISTA DESBLOQUEADA</small><b id="ach-text"></b></div>
+  </div>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
