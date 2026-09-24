@@ -27,3 +27,14 @@ Depois abra http://localhost:5500
 ## Configuração
 
 Contatos (WhatsApp, e-mail, Instagram, GitHub) ficam no objeto `CONFIG`, no começo do `script.js`.
+
+## Deploy (Cloudflare)
+
+O site roda na Cloudflare (Workers com arquivos estáticos), nos domínios `sandieh.online` e `www.sandieh.online`.
+
+```bash
+npx wrangler deploy
+```
+
+- `wrangler.jsonc`: configuração do projeto e dos domínios
+- `.assetsignore`: arquivos que não vão para o site publicado (`.git`, README, configs)

@@ -1,0 +1,14 @@
+{
+  "name": "sandieh-online",
+  "compatibility_date": "2026-09-23",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "."
+  },
+  "routes": [
+    { "pattern": "sandieh.online", "custom_domain": true },
+    { "pattern": "www.sandieh.online", "custom_domain": true }
+  ]
+}
