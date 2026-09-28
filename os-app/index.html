@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OS-App — Sistema de Ordem de Serviço | Sandieh Moreira</title>
+  <meta name="description" content="OS-App: sistema de Ordem de Serviço para assistência técnica de celular, com PDF automático. Download para Android, Windows e Linux." />
+  <meta name="theme-color" content="#05070a" />
+  <meta property="og:title" content="OS-App — Ordem de Serviço para assistência técnica" />
+  <meta property="og:description" content="Do cadastro do cliente ao PDF no WhatsApp. Android, Windows e Linux." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=8" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%2305070a'/><text x='50%' y='58%' text-anchor='middle' font-family='monospace' font-size='30' font-weight='700' fill='%2300ff9c'>S_</text></svg>" />
+</head>
+<body class="page-project">
+  <div class="project-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="../" class="logo" aria-label="Voltar ao portfólio">
+      <span class="logo-bracket">[</span>SM<span class="blink">_</span><span class="logo-bracket">]</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../#projetos"><span>←</span>Portfólio</a>
+      <a href="#tour"><span>01</span>Tour</a>
+      <a href="#download"><span>02</span>Download</a>
+      <a href="#recursos"><span>03</span>Recursos</a>
+      <a href="#contato-app" class="nav-cta">Quero um app assim</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HERO DO PROJETO ============ -->
+    <section class="project-hero">
+      <div class="project-hero-text">
+        <a href="../#projetos" class="back-link reveal">← voltar para os projetos</a>
+        <p class="hero-tag reveal"><span class="dot"></span> SAVE FILE 00 · PROJETO PUBLICADO</p>
+        <h1 class="reveal">OS<span>-</span>App</h1>
+        <p class="project-lead reveal">
+          Sistema de <strong>Ordem de Serviço</strong> para assistência técnica de celular.
+          Rápido de preencher no balcão, na frente do cliente, e termina com um
+          <strong>PDF pronto</strong> para mandar no WhatsApp ou imprimir.
+        </p>
+        <ul class="featured-platforms reveal" aria-label="Plataformas">
+          <li>Android</li><li>Windows</li><li>Linux</li><li class="soon">Web em breve</li>
+        </ul>
+        <div class="hero-actions reveal">
+          <a href="#download" class="btn btn-primary"><span>Baixar grátis</span></a>
+          <a href="#tour" class="btn btn-ghost"><span>Ver como funciona</span></a>
+        </div>
+      </div>
+      <div class="project-hero-phones reveal" aria-hidden="true">
+        <div class="mini-phone p1"><img src="../img/os-app/03-cliente.jpg" alt="" width="508" height="1100" /></div>
+        <div class="mini-phone p2"><img src="../img/os-app/02-inicio.jpg" alt="" width="508" height="1100" /></div>
+        <div class="mini-phone p3"><img src="../img/os-app/07-orcamento.jpg" alt="" width="508" height="1100" /></div>
+      </div>
+    </section>
+
+    <!-- ============ TOUR ============ -->
+    <section id="tour-section" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">01</span>
+        <h2>Tour do <em>app</em></h2>
+        <p class="section-cmd">$ ./os-app --demo --telas-reais</p>
+      </header>
+      <div class="tour reveal" id="tour" aria-roledescription="apresentação" aria-label="Como funciona o OS-App">
+        <div class="tour-stage">
+          <div class="phone" aria-live="polite">
+            <span class="phone-notch" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="../img/os-app/01-login.jpg" alt="Tela do OS-App: Login seguro" width="508" height="1100" class="tour-shot is-active" />
+              <img src="../img/os-app/02-inicio.jpg" alt="Tela do OS-App: Painel inicial" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/03-cliente.jpg" alt="Tela do OS-App: Busca pelo telefone" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/04-aparelho.jpg" alt="Tela do OS-App: Catálogo pronto" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/05-checklist.jpg" alt="Tela do OS-App: Checklist técnico" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/06-senha.jpg" alt="Tela do OS-App: Senha ou padrão" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/07-orcamento.jpg" alt="Tela do OS-App: Serviços e valores" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/08-detalhe.jpg" alt="Tela do OS-App: OS completa" width="508" height="1100" loading="lazy" class="tour-shot" />
+              <img src="../img/os-app/09-pdf.jpg" alt="Tela do OS-App: PDF pronto" width="1089" height="1100" loading="lazy" class="tour-shot is-paper" />
+              <img src="../img/os-app/10-configuracoes.jpg" alt="Tela do OS-App: Do seu jeito" width="508" height="1100" loading="lazy" class="tour-shot" />
+            </div>
+          </div>
+          <div class="tour-controls">
+            <button type="button" class="tour-nav" id="tour-prev" aria-label="Tela anterior">←</button>
+            <span class="tour-count" id="tour-count">01 / 10</span>
+            <button type="button" class="tour-nav" id="tour-next" aria-label="Próxima tela">→</button>
+            <button type="button" class="tour-nav tour-play" id="tour-play" aria-label="Pausar apresentação">❚❚</button>
+          </div>
+        </div>
+
+        <div class="tour-side">
+          <p class="tour-kicker">// TOUR DO APP · TELAS REAIS</p>
+          <h3>Da chegada do cliente ao <em>PDF no WhatsApp</em></h3>
+          <p class="tour-caption" id="tour-caption"><b>Login seguro</b> Cada técnico entra com e-mail e senha. Esqueceu? Recupera pelo e-mail.</p>
+          <ol class="tour-steps" id="tour-steps">
+          <li><button type="button" class="tour-step is-active" data-i="0" aria-current="step">
+            <span class="tour-num">01</span>
+            <span class="tour-txt"><b>Login seguro</b><small>Cada técnico entra com e-mail e senha. Esqueceu? Recupera pelo e-mail.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="1" aria-current="false">
+            <span class="tour-num">02</span>
+            <span class="tour-txt"><b>Painel inicial</b><small>Nova OS em um toque e o status das últimas ordens de serviço.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="2" aria-current="false">
+            <span class="tour-num">03</span>
+            <span class="tour-txt"><b>Busca pelo telefone</b><small>Digitou o WhatsApp, o cliente já cadastrado aparece na hora.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="3" aria-current="false">
+            <span class="tour-num">04</span>
+            <span class="tour-txt"><b>Catálogo pronto</b><small>Marca, modelo, cor e capacidade já cadastrados, e os acessórios entregues.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="4" aria-current="false">
+            <span class="tour-num">05</span>
+            <span class="tour-txt"><b>Checklist técnico</b><small>OK ou Não OK em cada item. Face ID e Touch ID só aparecem se o modelo tiver.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="5" aria-current="false">
+            <span class="tour-num">06</span>
+            <span class="tour-txt"><b>Senha ou padrão</b><small>O padrão de desbloqueio é desenhado com o dedo, igual no celular.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="6" aria-current="false">
+            <span class="tour-num">07</span>
+            <span class="tour-txt"><b>Serviços e valores</b><small>Cada serviço com seu valor, total calculado na hora e prazo de entrega.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="7" aria-current="false">
+            <span class="tour-num">08</span>
+            <span class="tour-txt"><b>OS completa</b><small>Tudo registrado para reabrir, reenviar ou imprimir quando precisar.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="8" aria-current="false">
+            <span class="tour-num">09</span>
+            <span class="tour-txt"><b>PDF pronto</b><small>Gerado no próprio aparelho, com termo de responsabilidade, pronto para o WhatsApp.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          <li><button type="button" class="tour-step" data-i="9" aria-current="false">
+            <span class="tour-num">10</span>
+            <span class="tour-txt"><b>Do seu jeito</b><small>Tema claro ou escuro, nome e logo da empresa, modo Local (offline) ou Nuvem.</small></span>
+            <i class="tour-bar" aria-hidden="true"></i>
+          </button></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section id="download" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">02</span>
+        <h2>Baixe <em>grátis</em></h2>
+        <p class="section-cmd">$ ./download --app os-app --latest</p>
+      </header>
+      <article class="app-card reveal" id="app-card">
+        <div class="app-info">
+          <div class="app-title">
+            <div class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="11" y="7" width="26" height="36" rx="4"/><path d="M18 7v-1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/><path d="M17 18h14M17 25h14M17 32h8"/><path d="M31 32l2.5 2.5L38 30"/></svg>
+            </div>
+            <div>
+              <p class="app-kicker">// FEITO POR MIM · PARA ASSISTÊNCIAS</p>
+              <h3>OS-App</h3>
+              <p class="app-version" id="app-version">Build automático · sempre a última versão</p>
+            </div>
+          </div>
+
+          <p class="app-desc">
+            Sistema de <strong>Ordem de Serviço</strong> para assistência técnica de celular:
+            rápido de preencher no balcão, na frente do cliente, e termina com um
+            <strong>PDF pronto</strong> para mandar no WhatsApp ou imprimir.
+          </p>
+
+          <ul class="app-features">
+            <li>Cadastro de cliente e aparelho com catálogo de marcas e modelos</li>
+            <li>Checklist técnico, fotos e senha/padrão de desenho do aparelho</li>
+            <li>Serviços, valores e prazo, com PDF e termo de responsabilidade</li>
+            <li>Funciona offline (modo Local) ou com backup na nuvem</li>
+          </ul>
+        </div>
+
+        <div class="app-downloads">
+          <p class="app-dl-title">▼ Escolha sua plataforma</p>
+
+          <a class="dl" data-os="android" href="https://github.com/SandiehMoreira/os-app/releases/download/latest/OS-Tecnica-Android.apk" rel="noopener">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 10v6a1 1 0 0 0 1 1h1v3a1 1 0 0 0 2 0v-3h4v3a1 1 0 0 0 2 0v-3h1a1 1 0 0 0 1-1v-6zM3.5 10a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0zM18.5 10a1 1 0 0 1 2 0v5a1 1 0 0 1-2 0zM6 9a6 6 0 0 1 12 0zM8.5 3.5l1 1.7M15.5 3.5l-1 1.7"/></svg>
+            </span>
+            <span class="dl-text"><b>Android</b><small>APK · <span data-size="OS-Tecnica-Android.apk">5 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl" data-os="windows" href="https://github.com/SandiehMoreira/os-app/releases/download/latest/OS-Tecnica-Windows-Setup.exe" rel="noopener">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 5.5l7.5-1v7H3zM11.5 4.3L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg>
+            </span>
+            <span class="dl-text"><b>Windows</b><small>Instalador .exe · <span data-size="OS-Tecnica-Windows-Setup.exe">106 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl" data-os="linux" href="https://github.com/SandiehMoreira/os-app/releases/download/latest/OS-Tecnica-Linux.AppImage" rel="noopener">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2c-2.2 0-3.5 1.9-3.5 4.3 0 1.5.3 2.3-.6 3.8C6.6 12 5 14 5 16.3c0 .6.1 1.1.3 1.6-.8.4-1.8.6-1.8 1.6 0 1.2 2 1.3 3.3 1.8 1.2.5 2 .9 2.8.9.9 0 1.4-.5 1.7-.9h1.4c.3.4.8.9 1.7.9.8 0 1.6-.4 2.8-.9 1.3-.5 3.3-.6 3.3-1.8 0-1-1-1.2-1.8-1.6.2-.5.3-1 .3-1.6 0-2.3-1.6-4.3-2.9-6.2-.9-1.5-.6-2.3-.6-3.8C15.5 3.9 14.2 2 12 2z"/></svg>
+            </span>
+            <span class="dl-text"><b>Linux</b><small>AppImage · <span data-size="OS-Tecnica-Linux.AppImage">120 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl dl-secondary" data-os="linux-deb" href="https://github.com/SandiehMoreira/os-app/releases/download/latest/OS-Tecnica-Linux.deb" rel="noopener">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8l-9-5-9 5v8l9 5zM3.3 7.6L12 12.5l8.7-4.9M12 12.5V21"/></svg>
+            </span>
+            <span class="dl-text"><b>Linux (Ubuntu/Debian)</b><small>Pacote .deb · <span data-size="OS-Tecnica-Linux.deb">95 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <div class="dl dl-soon" aria-disabled="true">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+            </span>
+            <span class="dl-text"><b>Versão Web</b><small>Direto no navegador</small></span>
+            <span class="dl-badge">EM BREVE</span>
+          </div>
+
+          <details class="app-howto">
+            <summary>Como instalar</summary>
+            <ul>
+              <li><b>Android:</b> toque no APK baixado. O Android vai pedir para permitir "instalar de fontes desconhecidas" (normal, pois não vem da Play Store). Autorize e instale.</li>
+              <li><b>Windows:</b> dê dois cliques no <code>.exe</code>. Se aparecer "O Windows protegeu seu PC", clique em <b>Mais informações → Executar assim mesmo</b> (só na primeira vez).</li>
+              <li><b>Linux (AppImage):</b> dê permissão de execução (<code>chmod +x OS-Tecnica-Linux.AppImage</code>) e abra direto, sem instalar.</li>
+              <li><b>Linux (.deb):</b> <code>sudo dpkg -i OS-Tecnica-Linux.deb</code></li>
+            </ul>
+          </details>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ RECURSOS ============ -->
+    <section id="recursos" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">03</span>
+        <h2>Recursos</h2>
+        <p class="section-cmd">$ os-app --features</p>
+      </header>
+      <div class="feat-grid">
+          <article class="feat reveal">
+            <span class="feat-num">01</span>
+            <h3>Nova OS em etapas</h3>
+            <p>Um passo a passo guiado: cliente, aparelho, queixa, checklist, senha, orçamento e revisão. Rápido de preencher no balcão.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">02</span>
+            <h3>Busca pelo telefone</h3>
+            <p>Digitou o WhatsApp, o cliente já cadastrado aparece. Nada de redigitar dados de quem volta.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">03</span>
+            <h3>Catálogo de aparelhos</h3>
+            <p>Marcas e modelos prontos (Apple, Samsung, Motorola, Xiaomi...) com cor e capacidade.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">04</span>
+            <h3>Checklist inteligente</h3>
+            <p>Itens como Face ID, Touch ID e botão home só aparecem quando o modelo tem.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">05</span>
+            <h3>Senha e padrão</h3>
+            <p>Registra senha numérica ou o padrão de desbloqueio desenhado com o dedo na grade 3x3.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">06</span>
+            <h3>PDF automático</h3>
+            <p>Gera a OS em PDF no próprio aparelho, com termo de responsabilidade e assinatura, pronta para compartilhar ou imprimir.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">07</span>
+            <h3>Local ou Nuvem</h3>
+            <p>Modo Local funciona 100% offline. Modo Nuvem faz backup no Firebase e sincroniza sozinho.</p>
+          </article>
+          <article class="feat reveal">
+            <span class="feat-num">08</span>
+            <h3>Do seu jeito</h3>
+            <p>Tema claro ou escuro, nome e logo da empresa no PDF, termo de responsabilidade editável.</p>
+          </article>
+      </div>
+
+      <div class="stack project-stack reveal">
+        <h3>// feito com</h3>
+        <div class="chips"><span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Tailwind CSS v4</span><span>Firebase Auth</span><span>Firestore</span><span>IndexedDB</span><span>Cloudinary</span><span>jsPDF</span><span>Capacitor (Android)</span><span>Electron (Windows/Linux)</span><span>GitHub Actions</span></div>
+        <p class="stack-note">Um só código: site estático que vira app Android (Capacitor) e programa de desktop (Electron). A cada atualização, o GitHub gera os instaladores sozinho.</p>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section id="contato-app" class="section">
+      <div class="project-cta reveal">
+        <p class="featured-kicker"><span>NOVA MISSÃO DISPONÍVEL</span></p>
+        <h2>Precisa de um <em>sistema sob medida</em> para a sua empresa?</h2>
+        <p>Eu desenvolvo apps, sites e softwares do jeito que o seu negócio funciona. Me chama e conta a sua ideia.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" id="cta-whats" href="https://wa.me/5541996411706?text=Ol%C3%A1%20Sandieh!%20Vi%20o%20OS-App%20no%20seu%20portf%C3%B3lio%20e%20quero%20um%20sistema%20para%20minha%20empresa." target="_blank" rel="noopener"><span>Falar no WhatsApp</span></a>
+          <a class="btn btn-ghost" href="../#projetos"><span>Voltar ao portfólio</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Sandieh Moreira · OS-App</p>
+    <p><a href="../" class="footer-back">← sandieh.online</a></p>
+  </footer>
+
+  <script src="../os-app.js?v=7"></script>
+</body>
+</html>
