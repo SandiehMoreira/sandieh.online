@@ -46,11 +46,11 @@
     </a>
     <nav class="nav-links" id="nav-links">
       <a href="#perfil"><span>01</span>Perfil</a>
-      <a href="#skills"><span>02</span>Skills</a>
-      <a href="#servicos"><span>03</span>Serviços</a>
-      <a href="#projetos"><span>04</span>Projetos</a>
-      <a href="#jornada"><span>05</span>Jornada</a>
-      <a href="#loadout"><span>06</span>Loadout</a>
+      <a href="#loadout"><span>02</span>Loadout</a>
+      <a href="#jornada"><span>03</span>Jornada</a>
+      <a href="#skills"><span>04</span>Skills</a>
+      <a href="#servicos"><span>05</span>Serviços</a>
+      <a href="#projetos"><span>06</span>Projetos</a>
       <a href="#contato" class="nav-cta">Contato</a>
     </nav>
     <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
@@ -176,10 +176,102 @@
       </div>
     </section>
 
+    <!-- ============ LOADOUT ============ -->
+    <section id="loadout" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">02</span>
+        <h2>Loadout <em>pessoal</em></h2>
+        <p class="section-cmd">$ inventory --show</p>
+      </header>
+
+      <div class="loadout-grid">
+        <div class="item item-big reveal" data-tilt>
+          <p class="item-rarity legendary">LENDÁRIO</p>
+          <span class="item-icon">♥</span>
+          <h3>Família</h3>
+          <p>Minha esposa e minha filha. O motivo de cada missão.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity epic">ÉPICO</p>
+          <span class="item-icon">✝</span>
+          <h3>Fé</h3>
+          <p>Membro da Igreja Batista Alameda.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity rare">RARO</p>
+          <span class="item-icon">🎸</span>
+          <h3>Guitarra</h3>
+          <p>Riffs em casa para recarregar a energia.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity rare">RARO</p>
+          <span class="item-icon">🖥</span>
+          <h3>PC gamer</h3>
+          <p>Setup montado para jogar e para programar.</p>
+        </div>
+        <div class="item reveal" data-tilt>
+          <p class="item-rarity epic">ÉPICO</p>
+          <span class="item-icon">⌨</span>
+          <h3>Terminal</h3>
+          <p>Onde o conhecimento em segurança é treinado, sempre de forma ética.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JORNADA ============ -->
+    <section id="jornada" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">03</span>
+        <h2>Jornada <em>(save points)</em></h2>
+        <p class="section-cmd">$ git log --oneline --reverse</p>
+      </header>
+
+      <div class="timeline">
+        <div class="timeline-line"><span id="timeline-fill"></span></div>
+
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">FEV · 1998</p>
+          <h3>Player spawn</h3>
+          <p>Nasce em Telêmaco Borba e cresce em Imbaú, no interior do Paraná.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">TUTORIAL</p>
+          <h3>Primeiro contato com tecnologia</h3>
+          <p>A curiosidade de abrir, entender e consertar as coisas vira paixão.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">LEVEL UP</p>
+          <h3>Técnico de celular</h3>
+          <p>Começa na assistência técnica e se especializa em iPhone.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">NOVA CLASSE</p>
+          <h3>Programador</h3>
+          <p>Passa a desenvolver sites, apps e softwares. Nasce o lado dev.</p>
+        </div>
+        <div class="checkpoint reveal">
+          <span class="cp-dot"></span>
+          <p class="cp-date">NOVO MAPA</p>
+          <h3>Curitiba</h3>
+          <p>Muda para a capital com a família e amplia os horizontes.</p>
+        </div>
+        <div class="checkpoint reveal current">
+          <span class="cp-dot"></span>
+          <p class="cp-date">AGORA</p>
+          <h3>Tech multiclasse</h3>
+          <p>Hardware, software e segurança, pronto para a sua próxima missão.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SKILLS ============ -->
     <section id="skills" class="section">
       <header class="section-head reveal">
-        <span class="section-num">02</span>
+        <span class="section-num">04</span>
         <h2>Árvore de <em>skills</em></h2>
         <p class="section-cmd">$ ./skills --list --verbose</p>
       </header>
@@ -234,7 +326,7 @@
     <section id="servicos" class="services">
       <div class="services-sticky">
         <header class="section-head services-head">
-          <span class="section-num">03</span>
+          <span class="section-num">05</span>
           <h2>Escolha sua <em>missão</em></h2>
           <p class="section-cmd">$ ./servicos --disponiveis</p>
         </header>
@@ -359,7 +451,7 @@
     <!-- ============ PROJETOS ============ -->
     <section id="projetos" class="section">
       <header class="section-head reveal">
-        <span class="section-num">04</span>
+        <span class="section-num">06</span>
         <h2>Save <em>files</em></h2>
         <p class="section-cmd">$ git clone github.com/SandiehMoreira</p>
       </header>
@@ -424,98 +516,6 @@
         </div>
         <span class="github-cta-go">Ver todos os projetos →</span>
       </a>
-    </section>
-
-    <!-- ============ JORNADA ============ -->
-    <section id="jornada" class="section">
-      <header class="section-head reveal">
-        <span class="section-num">05</span>
-        <h2>Jornada <em>(save points)</em></h2>
-        <p class="section-cmd">$ git log --oneline --reverse</p>
-      </header>
-
-      <div class="timeline">
-        <div class="timeline-line"><span id="timeline-fill"></span></div>
-
-        <div class="checkpoint reveal">
-          <span class="cp-dot"></span>
-          <p class="cp-date">FEV · 1998</p>
-          <h3>Player spawn</h3>
-          <p>Nasce em Telêmaco Borba e cresce em Imbaú, no interior do Paraná.</p>
-        </div>
-        <div class="checkpoint reveal">
-          <span class="cp-dot"></span>
-          <p class="cp-date">TUTORIAL</p>
-          <h3>Primeiro contato com tecnologia</h3>
-          <p>A curiosidade de abrir, entender e consertar as coisas vira paixão.</p>
-        </div>
-        <div class="checkpoint reveal">
-          <span class="cp-dot"></span>
-          <p class="cp-date">LEVEL UP</p>
-          <h3>Técnico de celular</h3>
-          <p>Começa na assistência técnica e se especializa em iPhone.</p>
-        </div>
-        <div class="checkpoint reveal">
-          <span class="cp-dot"></span>
-          <p class="cp-date">NOVA CLASSE</p>
-          <h3>Programador</h3>
-          <p>Passa a desenvolver sites, apps e softwares. Nasce o lado dev.</p>
-        </div>
-        <div class="checkpoint reveal">
-          <span class="cp-dot"></span>
-          <p class="cp-date">NOVO MAPA</p>
-          <h3>Curitiba</h3>
-          <p>Muda para a capital com a família e amplia os horizontes.</p>
-        </div>
-        <div class="checkpoint reveal current">
-          <span class="cp-dot"></span>
-          <p class="cp-date">AGORA</p>
-          <h3>Tech multiclasse</h3>
-          <p>Hardware, software e segurança, pronto para a sua próxima missão.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ LOADOUT ============ -->
-    <section id="loadout" class="section">
-      <header class="section-head reveal">
-        <span class="section-num">06</span>
-        <h2>Loadout <em>pessoal</em></h2>
-        <p class="section-cmd">$ inventory --show</p>
-      </header>
-
-      <div class="loadout-grid">
-        <div class="item item-big reveal" data-tilt>
-          <p class="item-rarity legendary">LENDÁRIO</p>
-          <span class="item-icon">♥</span>
-          <h3>Família</h3>
-          <p>Minha esposa e minha filha. O motivo de cada missão.</p>
-        </div>
-        <div class="item reveal" data-tilt>
-          <p class="item-rarity epic">ÉPICO</p>
-          <span class="item-icon">✝</span>
-          <h3>Fé</h3>
-          <p>Membro da Igreja Batista Alameda.</p>
-        </div>
-        <div class="item reveal" data-tilt>
-          <p class="item-rarity rare">RARO</p>
-          <span class="item-icon">🎸</span>
-          <h3>Guitarra</h3>
-          <p>Riffs em casa para recarregar a energia.</p>
-        </div>
-        <div class="item reveal" data-tilt>
-          <p class="item-rarity rare">RARO</p>
-          <span class="item-icon">🖥</span>
-          <h3>PC gamer</h3>
-          <p>Setup montado para jogar e para programar.</p>
-        </div>
-        <div class="item reveal" data-tilt>
-          <p class="item-rarity epic">ÉPICO</p>
-          <span class="item-icon">⌨</span>
-          <h3>Terminal</h3>
-          <p>Onde o conhecimento em segurança é treinado, sempre de forma ética.</p>
-        </div>
-      </div>
     </section>
 
     <!-- ============ CONTATO ============ -->
