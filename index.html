@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="style.css?v=13" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%2305070a'/><text x='50%' y='58%' text-anchor='middle' font-family='monospace' font-size='30' font-weight='700' fill='%2300ff9c'>S_</text></svg>" />
 </head>
 <body class="is-loading">
@@ -345,7 +345,7 @@
               <li>Face ID, câmeras e áudio</li>
               <li>Reparo de placa</li>
             </ul>
-            <a href="#contato" class="mission-cta" data-service="Assistência iPhone">Aceitar missão →</a>
+            <a href="#reparo" class="mission-cta" data-service="Assistência iPhone" data-device="iphone">Aceitar missão →</a>
           </article>
 
           <article class="mission" data-tilt>
@@ -361,7 +361,7 @@
               <li>Recuperação de sistema</li>
               <li>Limpeza e oxidação</li>
             </ul>
-            <a href="#contato" class="mission-cta" data-service="Assistência Android">Aceitar missão →</a>
+            <a href="#reparo" class="mission-cta" data-service="Assistência Android" data-device="android">Aceitar missão →</a>
           </article>
 
           <article class="mission" data-tilt>
@@ -430,6 +430,142 @@
         </div>
 
         <div class="services-progress" aria-hidden="true"><span id="services-bar"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ REPARO: diagnóstico interativo ============ -->
+    <section id="reparo" class="section reparo">
+      <header class="section-head reveal">
+        <span class="section-num">&gt;&gt;</span>
+        <h2>Seu celular deu <em>game over?</em></h2>
+        <p class="section-cmd">$ ./diagnostico --rapido --iphone --android</p>
+      </header>
+
+      <div class="rp reveal" id="rp">
+        <!-- Celular interativo -->
+        <div class="rp-stage">
+          <div class="rp-phone" id="rp-phone" data-device="iphone">
+            <svg viewBox="0 0 240 480" aria-hidden="true">
+              <defs>
+                <linearGradient id="rp-scr" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#1b3a8a" /><stop offset=".55" stop-color="#5b2a86" /><stop offset="1" stop-color="#0d6b5e" />
+                </linearGradient>
+                <clipPath id="rp-clip"><rect x="22" y="22" width="196" height="436" rx="26" /></clipPath>
+              </defs>
+              <!-- botões laterais -->
+              <g class="rp-btns">
+                <rect x="3" y="112" width="8" height="26" rx="3" />
+                <rect x="3" y="158" width="8" height="46" rx="3" />
+                <rect x="3" y="214" width="8" height="46" rx="3" />
+                <rect x="229" y="168" width="8" height="80" rx="3" />
+              </g>
+              <rect class="rp-body" x="10" y="10" width="220" height="460" rx="38" />
+              <g clip-path="url(#rp-clip)">
+                <rect x="22" y="22" width="196" height="436" fill="url(#rp-scr)" />
+                <text class="rp-time" x="120" y="118" text-anchor="middle">9:41</text>
+                <text class="rp-date" x="120" y="142" text-anchor="middle">tudo funcionando?</text>
+
+                <!-- efeitos de cada defeito -->
+                <g class="fx fx-agua">
+                  <rect x="22" y="22" width="196" height="436" fill="#1e7bff" opacity=".22" />
+                  <circle cx="62" cy="200" r="9" /><circle cx="170" cy="150" r="6" /><circle cx="150" cy="330" r="11" />
+                  <circle cx="80" cy="370" r="7" /><circle cx="190" cy="250" r="8" /><circle cx="108" cy="275" r="5" />
+                </g>
+                <g class="fx fx-software">
+                  <rect x="22" y="300" width="196" height="10" fill="#ff2bd6" opacity=".75" />
+                  <rect x="22" y="316" width="196" height="5" fill="#00e5ff" opacity=".8" />
+                  <rect x="22" y="330" width="196" height="14" fill="#ffd23f" opacity=".6" />
+                  <text x="120" y="378" text-anchor="middle" class="rp-err">ERRO 0x80070</text>
+                </g>
+                <g class="fx fx-bateria">
+                  <rect x="92" y="218" width="50" height="26" rx="5" fill="none" stroke="#fff" stroke-width="3" />
+                  <rect x="143" y="226" width="5" height="10" rx="1.5" fill="#fff" />
+                  <rect x="97" y="223" width="8" height="16" rx="2" fill="#ff3b3f" />
+                  <text x="120" y="266" text-anchor="middle" class="rp-small">5%</text>
+                </g>
+                <g class="fx fx-biometria">
+                  <rect x="100" y="164" width="40" height="40" rx="10" fill="none" stroke="#ff3b3f" stroke-width="3" />
+                  <path d="M110 176v4M130 176v4M112 194q8 5 16 0" stroke="#ff3b3f" stroke-width="3" fill="none" stroke-linecap="round" />
+                </g>
+                <g class="fx fx-audio">
+                  <path d="M52 404h10l12-10v32l-12-10H52z" fill="#fff" />
+                  <path d="M82 402l14 14M96 402l-14 14" stroke="#ff3b3f" stroke-width="3" stroke-linecap="round" />
+                </g>
+                <g class="fx fx-conector">
+                  <path d="M124 392l-14 22h10l-4 18 16-24h-10z" fill="#ffd23f" />
+                  <path d="M138 398l14 14M152 398l-14 14" stroke="#ff3b3f" stroke-width="3" stroke-linecap="round" />
+                </g>
+                <g class="fx fx-tela">
+                  <path d="M150 300L60 160M150 300L218 190M150 300L200 458M150 300L40 410M150 300L118 22M150 300L22 300M118 22l-18 40M40 410l30-10M200 458l-30-40M60 160l-30 10M218 190l-26 30"
+                        stroke="#fff" stroke-width="1.6" fill="none" opacity=".85" />
+                  <circle cx="150" cy="300" r="6" fill="#fff" opacity=".9" />
+                </g>
+                <g class="fx fx-camera">
+                  <circle cx="120" cy="43" r="13" fill="none" stroke="#ff3b3f" stroke-width="3" />
+                </g>
+                <g class="fx fx-naoliga">
+                  <rect x="22" y="22" width="196" height="436" fill="#030405" opacity=".94" />
+                  <text x="120" y="248" text-anchor="middle" class="rp-small rp-dead">sem sinal de vida</text>
+                </g>
+              </g>
+              <!-- câmera frontal: ilha (iPhone) ou furo (Android) -->
+              <rect class="only-ios" x="88" y="33" width="64" height="20" rx="10" fill="#000" />
+              <circle class="only-android" cx="120" cy="43" r="7" fill="#000" />
+              <!-- borda inferior: alto-falante e conector -->
+              <g class="rp-bottom">
+                <circle cx="78" cy="466" r="1.8" /><circle cx="85" cy="466" r="1.8" /><circle cx="92" cy="466" r="1.8" />
+                <rect x="106" y="464" width="28" height="4" rx="2" />
+                <circle cx="148" cy="466" r="1.8" /><circle cx="155" cy="466" r="1.8" /><circle cx="162" cy="466" r="1.8" />
+              </g>
+            </svg>
+
+            <!-- pontos de toque sobre o desenho -->
+            <button type="button" class="rp-hot" data-p="camera" style="left:50%;top:9%" aria-label="Câmera"><span>Câmera</span></button>
+            <button type="button" class="rp-hot" data-p="tela" style="left:62%;top:62%" aria-label="Tela"><span>Tela</span></button>
+            <button type="button" class="rp-hot" data-p="botoes" style="left:97%;top:43%" aria-label="Botões"><span>Botões</span></button>
+            <button type="button" class="rp-hot" data-p="audio" style="left:35%;top:97%" aria-label="Alto-falante"><span>Som</span></button>
+            <button type="button" class="rp-hot" data-p="conector" style="left:50%;top:97%" aria-label="Conector de carga"><span>Carga</span></button>
+          </div>
+          <p class="rp-tip">▲ toque no celular ou escolha na lista</p>
+        </div>
+
+        <!-- Painel de diagnóstico -->
+        <div class="rp-panel">
+          <p class="rp-step"><b>01</b> Qual é o aparelho?</p>
+          <div class="rp-devices" role="radiogroup" aria-label="Aparelho">
+            <button type="button" class="rp-dev is-on" data-device="iphone" role="radio" aria-checked="true">iPhone</button>
+            <button type="button" class="rp-dev" data-device="android" role="radio" aria-checked="false">Android</button>
+          </div>
+
+          <p class="rp-step"><b>02</b> O que aconteceu?</p>
+          <div class="rp-problems" id="rp-problems">
+            <button type="button" class="rp-chip" data-p="tela" aria-pressed="false">Tela quebrada / touch</button>
+            <button type="button" class="rp-chip" data-p="bateria" aria-pressed="false">Bateria viciada</button>
+            <button type="button" class="rp-chip" data-p="conector" aria-pressed="false">Não carrega</button>
+            <button type="button" class="rp-chip" data-p="camera" aria-pressed="false">Câmera</button>
+            <button type="button" class="rp-chip" data-p="audio" aria-pressed="false">Som / microfone</button>
+            <button type="button" class="rp-chip" data-p="botoes" aria-pressed="false">Botões</button>
+            <button type="button" class="rp-chip" data-p="biometria" aria-pressed="false" data-ios="Face ID / Touch ID" data-android="Digital / desbloqueio facial">Face ID / Touch ID</button>
+            <button type="button" class="rp-chip" data-p="agua" aria-pressed="false">Caiu na água</button>
+            <button type="button" class="rp-chip" data-p="naoliga" aria-pressed="false">Não liga</button>
+            <button type="button" class="rp-chip" data-p="software" aria-pressed="false">Travando / sistema</button>
+          </div>
+
+          <div class="rp-hp">
+            <div class="rp-hp-head"><span>HP DO APARELHO</span><b id="rp-hp-txt">100%</b></div>
+            <div class="rp-hp-bar"><i id="rp-hp-bar"></i></div>
+            <p class="rp-status" id="rp-status">Selecione o defeito para iniciar o diagnóstico.</p>
+          </div>
+
+          <p class="rp-step"><b>03</b> Detalhes <small>(opcional)</small></p>
+          <div class="rp-fields">
+            <input type="text" id="rp-modelo" placeholder="Modelo (ex: iPhone 13, Galaxy A54)" autocomplete="off" />
+            <textarea id="rp-detalhes" rows="2" placeholder="Conte o que aconteceu..."></textarea>
+          </div>
+
+          <button type="button" class="btn btn-primary rp-send" id="rp-send" disabled><span>Escolha o defeito ▲</span></button>
+          <p class="rp-note">Orçamento sem compromisso · diagnóstico transparente antes de qualquer serviço</p>
+        </div>
       </div>
     </section>
 
@@ -628,6 +764,6 @@
     <div><small>CONQUISTA DESBLOQUEADA</small><b id="ach-text"></b></div>
   </div>
 
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>

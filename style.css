@@ -455,6 +455,104 @@ h1, h2, h3 { margin: 0; line-height: 1.1; }
 .services-progress { margin: 36px var(--gutter) 0; height: 2px; background: var(--line); max-width: 400px; }
 .services-progress span { display: block; height: 100%; background: var(--green); transform: scaleX(0); transform-origin: left; box-shadow: 0 0 10px var(--green); }
 
+/* ---------- Reparo: diagnóstico interativo ---------- */
+.rp {
+  display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: 56px; align-items: center;
+  padding: 40px; border: 1px solid var(--line);
+  background: radial-gradient(circle at 22% 45%, rgba(255,59,63,.12), transparent 50%), var(--panel);
+}
+.rp-stage { display: grid; justify-items: center; gap: 14px; }
+.rp-phone { position: relative; width: min(280px, 70vw); }
+.rp-phone svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 30px 50px rgba(0,0,0,.6)); }
+.rp-body { fill: #151a20; stroke: #3a414b; stroke-width: 3; }
+.rp-btns rect { fill: #3a414b; transition: fill .3s; }
+.rp-bottom circle, .rp-bottom rect { fill: #06080a; }
+.rp-time { font: 600 44px var(--font-display); fill: #fff; }
+.rp-date { font: 500 11px var(--font-mono); fill: rgba(255,255,255,.75); letter-spacing: .06em; }
+.rp-small { font: 700 14px var(--font-mono); fill: #fff; }
+.rp-err { font: 700 13px var(--font-mono); fill: #fff; }
+.rp-dead { fill: #6b7580; font-size: 12px; font-weight: 500; }
+.rp-phone[data-device="iphone"] .only-android, .rp-phone[data-device="android"] .only-ios { display: none; }
+.rp-phone[data-device="android"] .rp-btns rect:nth-child(1) { display: none; }
+
+/* efeitos: aparecem quando o defeito é marcado */
+.rp-phone .fx { opacity: 0; transition: opacity .35s; }
+.fx-agua circle { fill: #8fd0ff; opacity: .85; }
+.rp-phone.p-tela .fx-tela, .rp-phone.p-bateria .fx-bateria, .rp-phone.p-conector .fx-conector,
+.rp-phone.p-camera .fx-camera, .rp-phone.p-audio .fx-audio, .rp-phone.p-biometria .fx-biometria,
+.rp-phone.p-agua .fx-agua, .rp-phone.p-naoliga .fx-naoliga, .rp-phone.p-software .fx-software { opacity: 1; }
+.rp-phone.p-botoes .rp-btns rect { fill: #ff3b3f; }
+.rp-phone.p-camera .fx-camera, .rp-phone.p-bateria .fx-bateria rect:nth-of-type(3) { animation: rp-blink 1s steps(1) infinite; }
+.rp-phone.p-software .fx-software { animation: rp-glitch .6s steps(2) infinite; }
+.rp-phone.p-naoliga .rp-time, .rp-phone.p-naoliga .rp-date { opacity: 0; }
+@keyframes rp-blink { 50% { opacity: .25; } }
+@keyframes rp-glitch { 50% { transform: translateX(4px); } }
+
+/* pontos de toque */
+.rp-hot {
+  position: absolute; transform: translate(-50%, -50%); width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%;
+  background: transparent; cursor: pointer;
+}
+.rp-hot::before, .rp-hot::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--green); }
+.rp-hot::after { inset: 3px; background: transparent; border: 2px solid var(--green); animation: rp-pulse 1.8s ease-out infinite; }
+.rp-hot.is-on::before { background: #ff3b3f; }
+.rp-hot.is-on::after { border-color: #ff3b3f; }
+@keyframes rp-pulse { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.6); opacity: 0; } }
+.rp-hot span {
+  position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; pointer-events: none;
+  font: 700 10px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--bg); background: var(--green);
+  padding: 3px 7px; opacity: 0; transition: opacity .2s;
+}
+.rp-hot:hover span, .rp-hot:focus-visible span { opacity: 1; }
+.rp-tip { margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+/* painel */
+.rp-step { margin: 0 0 10px; font-size: 17px; font-weight: 600; }
+.rp-step b { font-family: var(--font-mono); font-size: 12px; color: var(--green); margin-right: 8px; }
+.rp-step small { color: var(--muted); font-weight: 400; font-size: 13px; }
+.rp-devices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
+.rp-dev {
+  padding: 12px; cursor: pointer; background: transparent; border: 1px solid var(--line); color: var(--muted);
+  font: 600 16px var(--font-display); transition: border-color .2s, color .2s, background .2s;
+}
+.rp-dev:hover { color: var(--text); }
+.rp-dev.is-on { border-color: var(--green); color: var(--text); background: rgba(0,255,156,.08); box-shadow: inset 0 0 0 1px var(--green); }
+.rp-problems { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.rp-chip {
+  padding: 8px 12px; cursor: pointer; background: rgba(255,255,255,.02); border: 1px solid var(--line); color: var(--text);
+  font: 500 14px var(--font-display); transition: border-color .2s, background .2s, color .2s;
+}
+.rp-chip:hover { border-color: var(--green); }
+.rp-chip[aria-pressed="true"] { border-color: #ff3b3f; background: rgba(255,59,63,.14); color: #fff; }
+.rp-chip[aria-pressed="true"]::before { content: "✕ "; color: #ff6b6e; }
+
+.rp-hp { margin-bottom: 22px; padding: 14px 16px; border: 1px solid var(--line); background: rgba(0,0,0,.25); }
+.rp-hp-head { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; letter-spacing: .15em; color: var(--muted); margin-bottom: 8px; }
+.rp-hp-head b { color: var(--text); }
+.rp-hp-bar { height: 10px; background: rgba(255,255,255,.06); padding: 2px; }
+.rp-hp-bar i { display: block; height: 100%; width: 100%; background: var(--green); box-shadow: 0 0 10px var(--green); transition: width .5s cubic-bezier(.2,.8,.2,1), background .3s, box-shadow .3s; }
+.rp-hp.warn .rp-hp-bar i { background: var(--yellow); box-shadow: 0 0 10px var(--yellow); }
+.rp-hp.crit .rp-hp-bar i { background: #ff3b3f; box-shadow: 0 0 10px #ff3b3f; }
+.rp-status { margin: 8px 0 0; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.rp-hp.warn .rp-status { color: var(--yellow); }
+.rp-hp.crit .rp-status { color: #ff6b6e; }
+
+.rp-fields { display: grid; gap: 10px; margin-bottom: 18px; }
+.rp-fields input, .rp-fields textarea {
+  width: 100%; background: transparent; border: 1px solid var(--line); color: var(--text); padding: 10px 12px;
+  font: 15px var(--font-display); outline: none; resize: vertical; border-radius: 0;
+}
+.rp-fields input:focus, .rp-fields textarea:focus { border-color: var(--green); }
+.rp-fields ::placeholder { color: #4d5f58; }
+.rp-send { width: 100%; }
+.rp-send:disabled { cursor: not-allowed; filter: grayscale(1); opacity: .5; }
+.rp-note { margin: 10px 0 0; font-family: var(--font-mono); font-size: 11px; color: var(--muted); text-align: center; }
+
+@media (max-width: 900px) {
+  .rp { grid-template-columns: 1fr; gap: 32px; padding: 28px 18px; }
+  .rp-phone { width: min(230px, 62vw); }
+}
+
 /* ---------- Processo ---------- */
 .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: none; }
 .steps li { position: relative; padding: 28px 24px; border-top: 2px solid var(--green); background: linear-gradient(180deg, rgba(0,255,156,.06), transparent); }

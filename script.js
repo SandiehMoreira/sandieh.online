@@ -249,6 +249,87 @@ $$(".mission-cta").forEach((a) =>
   a.addEventListener("click", () => { $("#servico").value = a.dataset.service; })
 );
 
+/* ---------- Reparo: diagnóstico interativo -> WhatsApp ---------- */
+(function reparo() {
+  const phone = $("#rp-phone");
+  if (!phone) return;
+  const chips = $$(".rp-chip");
+  const hots = $$(".rp-hot");
+  const hp = $(".rp-hp");
+  const send = $("#rp-send");
+  const selected = new Set();
+  let device = "iphone";
+  const DEVICE_NAME = { iphone: "iPhone", android: "Android" };
+
+  const chipLabel = (p) => $(`.rp-chip[data-p="${p}"]`).textContent.trim();
+
+  const render = () => {
+    // efeitos no desenho do celular
+    [...phone.classList].filter((c) => c.startsWith("p-")).forEach((c) => phone.classList.remove(c));
+    selected.forEach((p) => phone.classList.add("p-" + p));
+    chips.forEach((c) => c.setAttribute("aria-pressed", selected.has(c.dataset.p)));
+    hots.forEach((h) => h.classList.toggle("is-on", selected.has(h.dataset.p)));
+
+    $(".rp-date", phone).textContent = selected.size ? "precisa de reparo!" : "tudo funcionando?";
+
+    // barra de HP
+    const grave = selected.has("naoliga") || selected.has("agua");
+    const value = selected.size === 0 ? 100 : Math.max(grave ? 8 : 15, 100 - selected.size * 22 - (grave ? 30 : 0));
+    $("#rp-hp-bar").style.width = value + "%";
+    $("#rp-hp-txt").textContent = value + "%";
+    hp.classList.toggle("warn", selected.size > 0 && value > 40);
+    hp.classList.toggle("crit", selected.size > 0 && value <= 40);
+    $("#rp-status").textContent =
+      selected.size === 0 ? "Selecione o defeito para iniciar o diagnóstico."
+      : value > 40 ? "Dano detectado. Dá pra resolver: pede o orçamento!"
+      : "Estado crítico. Traz pra cá que a gente revive o aparelho.";
+
+    send.disabled = selected.size === 0;
+    send.querySelector("span").textContent = selected.size === 0 ? "Escolha o defeito ▲" : "Pedir orçamento no WhatsApp ▶";
+  };
+
+  const toggle = (p) => { selected.has(p) ? selected.delete(p) : selected.add(p); render(); };
+
+  const setDevice = (d) => {
+    device = d;
+    phone.dataset.device = d;
+    $$(".rp-dev").forEach((b) => {
+      const on = b.dataset.device === d;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-checked", on);
+    });
+    const bio = $('.rp-chip[data-p="biometria"]');
+    bio.textContent = d === "iphone" ? bio.dataset.ios : bio.dataset.android;
+    $("#rp-modelo").placeholder = d === "iphone" ? "Modelo (ex: iPhone 13, iPhone 11 Pro)" : "Modelo (ex: Galaxy A54, Moto G84)";
+  };
+
+  chips.forEach((c) => c.addEventListener("click", () => toggle(c.dataset.p)));
+  hots.forEach((h) => h.addEventListener("click", () => toggle(h.dataset.p)));
+  $$(".rp-dev").forEach((b) => b.addEventListener("click", () => setDevice(b.dataset.device)));
+
+  // "Aceitar missão" nos cards de iPhone/Android já escolhe o aparelho
+  $$('.mission-cta[data-device]').forEach((a) => a.addEventListener("click", () => setDevice(a.dataset.device)));
+
+  send.addEventListener("click", () => {
+    if (!selected.size) return;
+    const modelo = $("#rp-modelo").value.trim();
+    const detalhes = $("#rp-detalhes").value.trim();
+    const text =
+      "Olá Sandieh! Vi seu site e preciso de reparo.\n" +
+      `Aparelho: ${DEVICE_NAME[device]}\n` +
+      (modelo ? `Modelo: ${modelo}\n` : "") +
+      "Problema(s):\n" + [...selected].map((p) => "• " + chipLabel(p)).join("\n") +
+      (detalhes ? `\n\nDetalhes: ${detalhes}` : "");
+    const url = CONFIG.whatsapp
+      ? `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`
+      : `mailto:${CONFIG.email}?subject=${encodeURIComponent("Orçamento de reparo")}&body=${encodeURIComponent(text)}`;
+    window.open(url, "_blank", "noopener");
+    unlock("Missão de reparo enviada!");
+  });
+
+  render();
+})();
+
 /* ---------- Projetos (GitHub) ---------- */
 (function projects() {
   const grid = $("#projects-grid");
