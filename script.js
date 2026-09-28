@@ -16,7 +16,8 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-/* ---------- Intro cinematográfica ---------- */
+/* ---------- Intro: invasão simulada no CMD ----------
+   Tudo aqui é só efeito visual: são textos na tela, nenhum comando é executado. */
 (function intro() {
   const el = $("#intro");
   const reveal = () => {
@@ -25,210 +26,116 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   };
   if (reduceMotion) { el.remove(); reveal(); return; }
 
-  const term = $("#intro-term");
-  const nameEl = $("#intro-name");
-  const center = $("#intro-center");
-  const pctEl = $("#intro-pct");
-  const barEl = $("#intro-bar");
-  const clockEl = $("#intro-clock");
-  const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@!?<>/\\{}[]アカサタナハマヤラワ";
-  const NAME = "SANDIEH MOREIRA";
-  const NAME_GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@<>/";
-  const timers = [];
-  const at = (ms, fn) => timers.push(setTimeout(fn, ms));
-  const rand = (a, b) => a + Math.random() * (b - a);
+  const body = $("#cmd-body");
   let done = false;
-  let raf;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const rand = (a, b) => Math.floor(a + Math.random() * (b - a));
+  const hex = (n) => Array.from({ length: n }, () => "0123456789abcdef"[rand(0, 16)]).join("");
+  const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  const PROMPT = '<span class="c-dim">C:\\Users\\visitante&gt;</span>';
 
-  /* ---- Canvas: chuva hex + partículas + ondas de choque ---- */
-  const cv = $("#intro-fx");
-  const ctx = cv.getContext("2d");
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  let W, H, cols, drops;
-  const resize = () => {
-    W = window.innerWidth; H = window.innerHeight;
-    cv.width = W * dpr; cv.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cols = Math.ceil(W / 18);
-    drops = Array.from({ length: cols }, () => rand(-40, 0));
+  const cursor = document.createElement("span");
+  cursor.className = "cmd-cursor";
+  const scroll = () => { body.scrollTop = body.scrollHeight; };
+  const line = (html = "") => {
+    cursor.remove();
+    body.insertAdjacentHTML("beforeend", html + "\n");
+    body.append(cursor);
+    scroll();
   };
-  resize();
-  window.addEventListener("resize", resize);
-
-  const particles = [];
-  const rings = [];
-  let rainAlpha = 0.5;
-  const COLORS = ["#00ff9c", "#00e5ff", "#ff2bd6", "#eafff5"];
-
-  let cx = W / 2, cy = H / 2;
-  const burst = () => {
-    const r = nameEl.getBoundingClientRect();
-    cx = r.left + r.width / 2; cy = r.top + r.height / 2;
-    const n = W < 600 ? 140 : 260;
-    for (let i = 0; i < n; i++) {
-      const a = rand(0, Math.PI * 2);
-      const sp = rand(2, W < 600 ? 11 : 17);
-      particles.push({
-        x: cx + rand(-W * 0.2, W * 0.2), y: cy + rand(-20, 20),
-        vx: Math.cos(a) * sp, vy: Math.sin(a) * sp * 0.75,
-        life: 1, decay: rand(0.008, 0.02), size: rand(1, 3.4),
-        c: COLORS[(Math.random() * COLORS.length) | 0],
-        ch: Math.random() < 0.35 ? GLYPHS[(Math.random() * GLYPHS.length) | 0] : null,
-      });
+  const type = async (text, speed = 16) => {
+    cursor.remove();
+    const span = document.createElement("span");
+    span.className = "c-w";
+    body.insertAdjacentHTML("beforeend", PROMPT);
+    body.append(span, cursor);
+    for (const ch of text) {
+      if (done) return;
+      span.textContent += ch;
+      scroll();
+      await sleep(speed);
     }
-    rings.push({ r: 10, a: 1, w: 6, c: "#00ff9c", sp: 22 });
-    rings.push({ r: 4, a: 0.8, w: 2, c: "#00e5ff", sp: 15 });
-    rings.push({ r: 0, a: 0.6, w: 1.5, c: "#ff2bd6", sp: 9 });
+    await sleep(160);
+    cursor.remove();
+    body.insertAdjacentText("beforeend", "\n");
+    body.append(cursor);
   };
-
-  let lastRain = 0;
-  const loop = (t) => {
-    raf = requestAnimationFrame(loop);
-    ctx.fillStyle = "rgba(5,7,10,0.22)";
-    ctx.fillRect(0, 0, W, H);
-
-    // chuva de código
-    if (t - lastRain > 45) {
-      lastRain = t;
-      ctx.font = "15px JetBrains Mono, monospace";
-      for (let c = 0; c < cols; c++) {
-        const y = drops[c] * 18;
-        ctx.fillStyle = `rgba(0,255,156,${rainAlpha * (Math.random() < 0.05 ? 1 : 0.45)})`;
-        ctx.fillText(GLYPHS[(Math.random() * GLYPHS.length) | 0], c * 18, y);
-        if (y > H && Math.random() > 0.96) drops[c] = 0;
-        drops[c]++;
-      }
-    }
-
-    // ondas de choque
-    for (let i = rings.length - 1; i >= 0; i--) {
-      const r = rings[i];
-      r.r += r.sp; r.sp *= 0.985; r.a -= 0.014;
-      if (r.a <= 0) { rings.splice(i, 1); continue; }
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, r.r, r.r * 0.62, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = r.c; ctx.globalAlpha = r.a; ctx.lineWidth = r.w;
-      ctx.shadowColor = r.c; ctx.shadowBlur = 20;
-      ctx.stroke();
-    }
-
-    // partículas
-    ctx.font = "13px JetBrains Mono, monospace";
-    for (let i = particles.length - 1; i >= 0; i--) {
-      const p = particles[i];
-      p.x += p.vx; p.y += p.vy; p.vx *= 0.965; p.vy = p.vy * 0.965 + 0.06; p.life -= p.decay;
-      if (p.life <= 0) { particles.splice(i, 1); continue; }
-      ctx.globalAlpha = p.life; ctx.fillStyle = p.c; ctx.shadowColor = p.c; ctx.shadowBlur = 12;
-      if (p.ch) ctx.fillText(p.ch, p.x, p.y);
-      else ctx.fillRect(p.x, p.y, p.size, p.size);
-    }
-    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
-  };
-  raf = requestAnimationFrame(loop);
-
-  /* ---- Relógio REC + barra de carga ---- */
-  const t0 = performance.now();
-  const clock = setInterval(() => {
-    const ms = performance.now() - t0;
-    const cs = Math.floor(ms / 10) % 100, s = Math.floor(ms / 1000);
-    clockEl.textContent = `00:${String(s).padStart(2, "0")}:${String(cs).padStart(2, "0")}`;
-  }, 40);
-  const setLoad = (v) => {
-    pctEl.textContent = String(Math.round(v)).padStart(3, "0") + "%";
-    barEl.style.width = v + "%";
-  };
-
-  /* ---- Terminal ---- */
-  const addLine = (html) => { term.insertAdjacentHTML("beforeend", html + "\n"); };
-  const progressLine = (label, dur, startMs) => {
-    const id = "pl" + Math.random().toString(36).slice(2);
-    at(startMs, () => addLine(`${label} <span id="${id}"></span>`));
-    const steps = 14;
-    for (let i = 0; i <= steps; i++) {
-      at(startMs + (dur / steps) * i, () => {
-        const s = $("#" + id);
-        if (s) s.textContent = "[" + "█".repeat(i) + "░".repeat(steps - i) + "] " + Math.round((i / steps) * 100) + "%";
-      });
+  const progress = async (label, dur) => {
+    cursor.remove();
+    const span = document.createElement("span");
+    body.insertAdjacentHTML("beforeend", label + " ");
+    body.append(span, document.createTextNode("\n"), cursor);
+    const steps = 20;
+    for (let i = 0; i <= steps && !done; i++) {
+      span.innerHTML = `<span class="c-bar">[${"█".repeat(i)}${"░".repeat(steps - i)}]</span> ${Math.round((i / steps) * 100)}%`;
+      scroll();
+      await sleep(dur / steps);
     }
   };
-  at(80,  () => addLine('<span class="dim">[sys]</span> iniciando SANDIEH_OS v' + ($("#level").textContent.replace(/\D/g, "") || "28") + ".0"));
-  at(300, () => addLine('<span class="dim">[net]</span> conectando ao host 192.168.0.1 ... <span class="ok">ok</span>'));
-  progressLine('<span class="warn">[sec]</span> quebrando firewall', 700, 520);
-  at(1300, () => addLine('<span class="dim">[bio]</span> escaneando identidade do player ...'));
-  at(1500, () => addLine('<span class="ok">[ok]</span>  match encontrado: 1 resultado'));
 
-  let load = 0;
-  const loadTimer = setInterval(() => { load = Math.min(load + rand(1, 4), 99); setLoad(load); }, 50);
+  async function run() {
+    line('<span class="c-dim">Microsoft Windows [versão 10.0.22631.4317]</span>');
+    line('<span class="c-dim">(c) Sandieh Corporation. Todos os direitos reservados.</span>');
+    line();
+    await sleep(350);
+    await type("sandieh.exe --target sandieh.online --mode stealth");
+    if (done) return;
+    line('<span class="c-y">[*]</span> Resolvendo host sandieh.online ........ <span class="c-c">10.0.13.37</span>');
+    await sleep(220);
+    line('<span class="c-y">[*]</span> Varrendo portas...');
+    const ports = [["21/tcp", "closed", "ftp", "c-dim"], ["22/tcp", "open", "ssh", "c-g"], ["80/tcp", "open", "http", "c-g"], ["443/tcp", "open", "https", "c-g"], ["3306/tcp", "filtered", "mysql", "c-y"]];
+    for (const [port, state, svc, cls] of ports) {
+      if (done) return;
+      line(`    ${port.padEnd(10)}<span class="${cls}">${state.padEnd(10)}</span>${svc}`);
+      await sleep(75);
+    }
+    await progress('<span class="c-y">[*]</span> Bypass do firewall', 800);
+    if (done) return;
+    line('<span class="c-y">[*]</span> Quebrando hash SHA-256 da senha root...');
+    for (let i = 0; i < 22 && !done; i++) {
+      line(`    <span class="c-dim">0x${hex(4)}</span> ${hex(32)}  <span class="c-r">✗ falhou</span>`);
+      await sleep(i < 5 ? 70 : 24);
+    }
+    if (done) return;
+    line(`    <span class="c-dim">0x${hex(4)}</span> ${hex(32)}  <span class="c-g">✓ MATCH</span>`);
+    await sleep(250);
+    line('<span class="c-g">[+]</span> Credenciais obtidas: <span class="c-w">root</span> / <span class="c-w">••••••••••</span>');
+    await progress('<span class="c-y">[*]</span> Descriptografando portfólio', 650);
+    if (done) return;
+    line('<span class="c-g">[+] ACESSO ROOT CONCEDIDO</span>');
+    line();
+    await sleep(300);
+    await type("start portfolio.exe", 28);
+    if (done) return;
+    await sleep(150);
 
-  /* ---- Descriptografar nome ---- */
-  let scrambleTimer;
-  const setName = (t) => { nameEl.textContent = t; nameEl.dataset.text = t; };
-  const scramble = (text, dur) => {
-    const start = performance.now();
-    nameEl.classList.add("rgb");
-    const step = () => {
-      if (done) return clearInterval(scrambleTimer);
-      const p = Math.min((performance.now() - start) / dur, 1);
-      const revealed = Math.floor(p * text.length);
-      let out = "";
-      for (let i = 0; i < text.length; i++) {
-        if (text[i] === " ") out += " ";
-        else if (i < revealed) out += text[i];
-        else out += NAME_GLYPHS[(Math.random() * NAME_GLYPHS.length) | 0];
-      }
-      setName(out);
-      if (p >= 1) clearInterval(scrambleTimer);
-    };
-    scrambleTimer = setInterval(step, 40);
-    step();
-  };
+    // Pausa clássica do Windows: o site só abre quando a pessoa aperta algo
+    await sleep(350);
+    await type("pause", 45);
+    if (done) return;
+    const touch = window.matchMedia("(hover: none)").matches;
+    cursor.remove();
+    body.insertAdjacentHTML("beforeend", `<span class="cmd-pause">${touch ? "Toque na tela" : "Pressione qualquer tecla"} para continuar. . .</span>`);
+    body.append(cursor);
+    scroll();
+    el.classList.add("waiting");
+  }
 
-  const typeInto = (el, text, speed) => {
-    [...text].forEach((ch, i) => at(i * speed, () => { el.textContent += ch; }));
-  };
-
-  at(1550, () => { $("#intro-kicker").classList.add("on"); scramble(NAME, 1250); });
-
-  // IMPACTO
-  at(2850, () => {
-    clearInterval(scrambleTimer);
-    setName(NAME);
-    nameEl.classList.remove("rgb");
-    nameEl.classList.add("locked");
-    $(".intro-flash").classList.add("on");
-    center.classList.add("shake");
-    $("#intro-granted").classList.add("on");
-    $("#intro-kicker").textContent = "// identidade confirmada";
-    rainAlpha = 0.18;
-    burst();
-    clearInterval(loadTimer); setLoad(100);
-    if (navigator.vibrate) try { navigator.vibrate([30, 40, 60]); } catch {}
-  });
-  at(3000, () => nameEl.classList.add("rgb"));
-  at(3150, () => nameEl.classList.remove("rgb"));
-
-  at(3350, () => typeInto($("#intro-sub"), "Técnico iPhone · Dev · Cibersegurança", 28));
-  at(4350, () => $("#intro-ready").classList.add("on"));
-  at(5300, () => finish());
-
-  /* ---- Saída: tela se abre em fatias ---- */
+  /* ---- Saída: a tela se abre em fatias ---- */
   function finish() {
     if (done) return;
     done = true;
-    timers.forEach(clearTimeout);
-    clearInterval(clock); clearInterval(loadTimer); clearInterval(scrambleTimer);
     el.classList.add("exit");
     reveal();
-    setTimeout(() => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-      el.remove();
-    }, 1500);
+    setTimeout(() => el.remove(), 1400);
   }
 
+  // Qualquer tecla, botão do mouse ou toque libera o site (também serve para pular)
   $("#intro-skip").addEventListener("click", finish);
   window.addEventListener("keydown", finish, { once: true });
-  el.addEventListener("click", finish);
+  el.addEventListener("pointerdown", finish);
+  el.addEventListener("contextmenu", (e) => e.preventDefault());
+  run();
 })();
 
 /* ---------- Matrix rain ---------- */
@@ -364,7 +271,7 @@ $$(".mission-cta").forEach((a) =>
 
   const render = (repos) => {
     grid.innerHTML = "";
-    repos.slice(0, 6).forEach((r, i) => {
+    repos.slice(0, 3).forEach((r, i) => {
       const a = document.createElement("a");
       a.className = "project reveal visible";
       a.href = r.html_url;
