@@ -795,6 +795,23 @@ a.dl:hover .dl-arrow { transform: translateY(3px); }
 .featured-site:hover .browser { transform: translateY(-52%) translateX(-6px); }
 .featured-site:hover .site-phone { transform: translateY(-10px) rotate(-3deg); }
 
+/* Variante: app MestreScan (vermelho de alerta + dourado da marca) */
+.featured-scan {
+  border-color: rgba(224,178,58,.6);
+  background: radial-gradient(circle at 85% 50%, rgba(255,59,63,.14), transparent 55%), linear-gradient(135deg, rgba(224,178,58,.08), transparent 50%), var(--panel);
+}
+.featured-scan:hover { box-shadow: 0 0 60px rgba(224,178,58,.16); }
+.featured-scan .featured-desc strong { color: #f0cf7a; }
+.kicker-scan { background: #e0b23a !important; }
+.scan-feats { list-style: none; margin: 0 0 16px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; font-size: 14px; }
+.scan-feats li::before { content: "✓ "; color: #e0b23a; font-weight: 700; }
+.scan-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 6px 0 12px; }
+.scan-dl { background: #e0b23a; }
+.scan-dl::before { background: #f5d77a; }
+.scan-note { margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); max-width: 520px; }
+.scan-note b { color: var(--text); font-weight: 600; }
+.scan-shots img { border-color: #16181b; }
+
 /* ---------- Página do projeto (os-app/) ---------- */
 body.page-project { overflow-x: hidden; }
 .project-bg {
@@ -868,6 +885,8 @@ body.page-project { overflow-x: hidden; }
   .featured-shots img { width: 110px; border-radius: 14px; border-width: 4px; }
   .featured-shots img:nth-child(2) { width: 124px; }
   .featured-site .site-shots { height: 230px; }
+  .scan-feats { grid-template-columns: 1fr; }
+  .scan-actions .btn { flex: 1 1 100%; }
   .site-phone { width: 92px; border-radius: 17px; padding: 4px; }
   .site-phone img { border-radius: 13px; }
   .browser { width: 92%; }

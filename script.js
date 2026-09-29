@@ -390,8 +390,8 @@ $$(".mission-cta").forEach((a) =>
   fetch(`https://api.github.com/users/${CONFIG.github}/repos?sort=updated&per_page=30`)
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((repos) => {
-      // o OS-App já aparece no card de destaque acima da grade
-      const list = repos.filter((r) => !r.fork && r.name !== "os-app");
+      // OS-App e MestreScan já aparecem nos cards de destaque acima da grade
+      const list = repos.filter((r) => !r.fork && !["os-app", "mestrescan"].includes(r.name));
       render(list.length ? list : FALLBACK);
     })
     .catch(() => render(FALLBACK));
