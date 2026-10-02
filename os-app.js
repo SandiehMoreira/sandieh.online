@@ -59,7 +59,10 @@ $("#year").textContent = new Date().getFullYear();
         const el = $(`[data-size="${a.name}"]`);
         if (el) el.textContent = Math.round(a.size / 1048576) + " MB";
       });
-      const date = new Date(rel.published_at).toLocaleDateString("pt-BR");
+      // A release "latest" é atualizada no lugar (não recriada), então a data que vale
+      // é a do instalador mais recente, e não a de publicação da release.
+      const updated = rel.assets.reduce((max, a) => (a.updated_at > max ? a.updated_at : max), rel.published_at);
+      const date = new Date(updated).toLocaleDateString("pt-BR");
       $("#app-version").textContent = `Última versão: ${date} · atualiza sozinha`;
     })
     .catch(() => {});
