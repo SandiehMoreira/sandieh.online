@@ -812,6 +812,30 @@ a.dl:hover .dl-arrow { transform: translateY(3px); }
 .scan-note b { color: var(--text); font-weight: 600; }
 .scan-shots img { border-color: #16181b; }
 
+/* Variante: Testador Mobile (laudo ilustrativo) */
+.featured-test {
+  border-color: rgba(0,229,255,.5);
+  background: radial-gradient(circle at 85% 50%, rgba(0,229,255,.14), transparent 55%), linear-gradient(135deg, rgba(0,255,156,.07), transparent 50%), var(--panel);
+}
+.featured-test:hover { box-shadow: 0 0 60px rgba(0,229,255,.16); }
+.featured-test .featured-desc strong { color: var(--cyan); }
+.featured-test .featured-cta { color: var(--cyan); }
+.kicker-test { background: var(--cyan) !important; }
+.test-report {
+  justify-self: center; width: min(340px, 100%); background: #f4f7f6; color: #10201a; padding: 20px 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.55); transform: rotate(2deg); transition: transform .5s cubic-bezier(.2,.8,.2,1);
+  font-family: var(--font-display);
+}
+.featured-test:hover .test-report { transform: rotate(0deg) translateY(-6px); }
+.tr-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-bottom: 12px; margin-bottom: 10px; border-bottom: 2px solid #10201a; }
+.tr-head span { font: 700 11px var(--font-mono); letter-spacing: .1em; }
+.tr-head b { font: 700 11px var(--font-mono); letter-spacing: .12em; color: #fff; background: #12a150; padding: 3px 8px; }
+.test-report ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.test-report li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; border-bottom: 1px dashed #c9d4cf; padding-bottom: 6px; }
+.test-report li i { font-style: normal; font-weight: 700; color: #12a150; }
+.tr-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font: 11px var(--font-mono); color: #4b5d56; }
+.tr-seal { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 2px solid #12a150; color: #12a150; font-size: 16px; font-weight: 700; transform: rotate(-12deg); }
+
 /* ---------- Página do projeto (os-app/) ---------- */
 body.page-project { overflow-x: hidden; }
 .project-bg {

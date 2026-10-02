@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testador Mobile — teste seu celular novo | Sandieh Moreira</title>
+  <meta name="description" content="Teste seu celular novo em 5 minutos: tela, som, câmeras, sensores, bateria e laudo em PDF. Motorola, Samsung, Xiaomi e iPhone." />
+  <meta name="theme-color" content="#05070a" />
+  <meta property="og:title" content="Testador Mobile — teste seu celular novo em 5 minutos" />
+  <meta property="og:description" content="Descubra defeitos enquanto ainda dá para trocar. Laudo PDF com data e hora." />
+  <link rel="canonical" href="https://sandieh.online/testador/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sandieh Moreira" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://sandieh.online/testador/" />
+  <meta property="og:image" content="https://sandieh.online/img/og-sandieh.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=15" />
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" href="/favicon-48.png" sizes="48x48" />
+  <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <style>
+    /* Ajustes só desta página; o resto vem do style.css do site. */
+    .tm-steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .tm-steps li { counter-increment: s; position: relative; padding-left: 44px; color: #b9d2c8; }
+    .tm-steps li::before {
+      content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 0;
+      font-family: var(--font-mono); font-size: 13px; color: var(--green);
+      border: 1px solid var(--line); padding: 2px 6px;
+    }
+    .tm-steps b { color: var(--text); }
+    /* o card do passo a passo ocupa a largura toda e não leva o selo "release" */
+    #como-usar .app-card { grid-template-columns: 1fr; }
+    #como-usar .app-card::before { display: none; }
+    .sha { font-family: var(--font-mono); font-size: 11px; color: var(--muted); word-break: break-all; }
+    .dl-note { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+  </style>
+</head>
+<body class="page-project">
+  <div class="project-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="../" class="logo" aria-label="Voltar ao portfólio">
+      <span class="logo-bracket">[</span>SM<span class="blink">_</span><span class="logo-bracket">]</span>
+    </a>
+    <nav class="nav-links" id="nav-links">
+      <a href="../#projetos"><span>←</span>Portfólio</a>
+      <a href="#download"><span>01</span>Download</a>
+      <a href="#como-usar"><span>02</span>Como usar</a>
+      <a href="#testes"><span>03</span>O que testa</a>
+      <a href="#ajuda" class="nav-cta">Ajuda</a>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="project-hero">
+      <div class="project-hero-text">
+        <a href="../#projetos" class="back-link reveal">← voltar para os projetos</a>
+        <p class="hero-tag reveal"><span class="dot"></span> CELULAR NOVO · TESTE EM 5 MINUTOS</p>
+        <h1 class="reveal">Testador<span>-</span>Mobile</h1>
+        <p class="project-lead reveal">
+          Comprou um celular? Teste <strong>tela, som, câmeras, sensores e bateria</strong> passo a passo,
+          descubra defeitos <strong>enquanto ainda dá para trocar</strong> e saia com um
+          <strong>laudo em PDF</strong> com data e hora.
+        </p>
+        <ul class="featured-platforms reveal" aria-label="Marcas">
+          <li>Motorola</li><li>Samsung</li><li>Xiaomi</li><li>iPhone</li>
+        </ul>
+        <div class="hero-actions reveal">
+          <a href="#download" class="btn btn-primary"><span>Baixar grátis</span></a>
+          <a href="#como-usar" class="btn btn-ghost"><span>Como funciona</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section id="download" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">01</span>
+        <h2>Baixe o da <em>sua marca</em></h2>
+        <p class="section-cmd">$ ./testador --marca auto</p>
+      </header>
+      <article class="app-card reveal">
+        <div class="app-info">
+          <div class="app-title">
+            <div class="app-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><rect x="13" y="5" width="22" height="38" rx="4"/><path d="M20 9h8"/><path d="M18.5 25l3.5 3.5 7.5-7.5"/></svg>
+            </div>
+            <div>
+              <p class="app-kicker">// FEITO POR MIM · GRÁTIS</p>
+              <h3>Testador Mobile</h3>
+              <p class="app-version" id="app-version">Um app para cada marca, com os testes daquele aparelho</p>
+            </div>
+          </div>
+          <p class="app-desc">
+            Cada marca tem o seu app, com testes próprios: <strong>gestos Moto</strong> no Motorola,
+            <strong>S Pen e Knox</strong> no Samsung, <strong>infravermelho e ROM</strong> no Xiaomi.
+            Baixe o da marca do seu celular — o botão certo já aparece destacado.
+          </p>
+          <ul class="app-features">
+            <li>24 a 27 testes, um por tela, com instrução simples</li>
+            <li>Detecta armazenamento falso, Android maquiado e sistema modificado</li>
+            <li>Laudo PDF para compartilhar no WhatsApp ou salvar</li>
+            <li>Não pede cadastro, não envia seus dados para ninguém</li>
+          </ul>
+        </div>
+
+        <div class="app-downloads">
+          <p class="app-dl-title">▼ Escolha a marca do celular</p>
+
+          <a class="dl" data-brand="motorola" href="Testador-Mobile-Motorola.apk" download>
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M6.5 15.5L9 8l3 6 3-6 2.5 7.5"/></svg>
+            </span>
+            <span class="dl-text"><b>Motorola</b><small>APK · <span data-size="Testador-Mobile-Motorola.apk">2,5 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl" data-brand="samsung" href="Testador-Mobile-Samsung.apk" download>
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M10 5h4M11 19h2"/></svg>
+            </span>
+            <span class="dl-text"><b>Samsung Galaxy</b><small>APK · <span data-size="Testador-Mobile-Samsung.apk">2,5 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl" data-brand="xiaomi" href="Testador-Mobile-Xiaomi.apk" download>
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 16V8h5a3 3 0 0 1 3 3v5M12 16v-5"/></svg>
+            </span>
+            <span class="dl-text"><b>Xiaomi · Redmi · POCO</b><small>APK · <span data-size="Testador-Mobile-Xiaomi.apk">2,5 MB</span></small></span>
+            <span class="dl-arrow" aria-hidden="true">↓</span>
+          </a>
+
+          <a class="dl dl-secondary" data-brand="iphone" href="https://apps.apple.com/br/app/velocity-x/id1547404030" target="_blank" rel="noopener">
+            <span class="dl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C6.9 7.4 5.4 8.3 4.6 9.8c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8 2.1-1.2 2.8-2.4c.9-1.3 1.2-2.6 1.3-2.7-.1 0-2.6-1-2.7-4.1zM14.2 5.6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>
+            </span>
+            <span class="dl-text"><b>iPhone</b><small>App Store · Velocity-X</small></span>
+            <span class="dl-arrow" aria-hidden="true">↗</span>
+          </a>
+          <p class="dl-note">No iPhone, por enquanto indicamos o <b>Velocity-X</b> (grátis, de outro desenvolvedor) até o Testador Mobile chegar à App Store.</p>
+
+          <details class="app-howto" id="instalar">
+            <summary>Como instalar no Android</summary>
+            <ul>
+              <li><b>1.</b> Toque na sua marca acima. O arquivo baixa em segundos.</li>
+              <li><b>2.</b> Abra o arquivo baixado (aparece na notificação ou em <b>Arquivos › Downloads</b>).</li>
+              <li><b>3.</b> O Android avisa que o app não vem da Play Store. Toque em <b>Configurações</b> e ligue <b>Permitir desta fonte</b> para o navegador que você usou. Volte e toque em <b>Instalar</b>.</li>
+              <li><b>Samsung:</b> se aparecer o aviso do Play Protect ou do Bloqueio Automático, toque em <b>Mais detalhes › Instalar assim mesmo</b>. O Bloqueio Automático (Configurações › Segurança) pode precisar ser desligado durante a instalação.</li>
+              <li><b>Xiaomi / Redmi / POCO:</b> o sistema pode pedir para esperar alguns segundos e confirmar mais de uma vez. Se aparecer <b>"Instalação bloqueada"</b>, toque em <b>Configurações</b> e permita o navegador. Desligue a <b>Proteção do sistema</b> só durante a instalação, se for pedido.</li>
+              <li><b>Motorola:</b> segue o padrão: <b>Configurações › Permitir desta fonte</b> e <b>Instalar</b>.</li>
+            </ul>
+          </details>
+
+          <details class="app-howto">
+            <summary>Conferir se o arquivo é original (SHA-256)</summary>
+            <ul id="sha-list">
+              <li class="sha">Carregando…</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ COMO USAR ============ -->
+    <section id="como-usar" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">02</span>
+        <h2>Como <em>usar</em></h2>
+        <p class="section-cmd">$ ./testador --passo-a-passo</p>
+      </header>
+      <div class="app-card reveal">
+        <ol class="tm-steps">
+          <li><b>Abra o app e toque em "Testar meu celular".</b> Se baixou o app da marca errada, ele avisa.</li>
+          <li><b>Confira o que você comprou.</b> Marca, modelo, memória e armazenamento já vêm preenchidos; corrija se a caixa disser outra coisa. O IMEI é opcional (aparece discando <code>*#06#</code>).</li>
+          <li><b>Faça um teste por vez.</b> Cada tela explica o que fazer. Alguns testes são automáticos (touch, botões, sensores); nos outros você toca em <b>Funcionou</b> ou <b>Não funcionou</b>. Dá para <b>pular</b> e voltar depois.</li>
+          <li><b>As permissões são pedidas na hora</b> (câmera, microfone, localização para o GPS). Nada é salvo nem enviado.</li>
+          <li><b>Veja se é novo de verdade.</b> No fim, o app confere sinais de aparelho usado ou falsificado e pode testar se o armazenamento é real (rápido ou completo).</li>
+          <li><b>Veja o resultado e gere o laudo PDF.</b> Selo verde = aprovado. Se algo falhou, toque no teste para refazer ou procure a loja onde comprou ou a autorizada da marca.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ O QUE TESTA ============ -->
+    <section id="testes" class="section">
+      <header class="section-head reveal">
+        <span class="section-num">03</span>
+        <h2>O que é <em>testado</em></h2>
+        <p class="section-cmd">$ testador --lista</p>
+      </header>
+      <div class="feat-grid">
+        <article class="feat reveal"><span class="feat-num">01</span><h3>Tela</h3><p>Manchas e pixels mortos em 5 cores, touch em grade com traço de tinta, 5 dedos e brilho.</p></article>
+        <article class="feat reveal"><span class="feat-num">02</span><h3>Som</h3><p>Alto-falante e auricular (contando bipes), cada microfone gravando e tocando de volta, fone P2.</p></article>
+        <article class="feat reveal"><span class="feat-num">03</span><h3>Câmeras</h3><p>Todas as lentes, traseiras e frontal, com toque para focar, e o flash.</p></article>
+        <article class="feat reveal"><span class="feat-num">04</span><h3>Botões e biometria</h3><p>Volume, vibração, digital ou rosto. Caneta, dobradiça e tela externa nos modelos que têm.</p></article>
+        <article class="feat reveal"><span class="feat-num">05</span><h3>Sensores</h3><p>Proximidade, luz, acelerômetro, giroscópio e bússola. Sensor que o modelo não tem não reprova.</p></article>
+        <article class="feat reveal"><span class="feat-num">06</span><h3>Conexões</h3><p>Wi-Fi, Bluetooth, GPS, NFC e chip com sinal da operadora.</p></article>
+        <article class="feat reveal"><span class="feat-num">07</span><h3>Energia</h3><p>Carregamento com corrente (carga rápida), sem fio quando tem, saúde e ciclos da bateria.</p></article>
+        <article class="feat reveal"><span class="feat-num">08</span><h3>É novo mesmo?</h3><p>Armazenamento falso, Android maquiado, root, ROM chinesa, apps já instalados, ciclos de bateria.</p></article>
+      </div>
+    </section>
+
+    <!-- ============ AJUDA ============ -->
+    <section id="ajuda" class="section">
+      <div class="project-cta reveal">
+        <p class="featured-kicker"><span>ACHOU DEFEITO?</span></p>
+        <h2>Pelo Código de Defesa do Consumidor, você tem <em>90 dias</em> para reclamar de defeito.</h2>
+        <p>Procure a loja onde comprou ou a assistência autorizada da marca, levando a nota fiscal e o laudo do app.
+          Se não resolverem, Procon da sua cidade ou consumidor.gov.br. Comprou pela internet? Pode desistir em até 7 dias.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#instalar" id="btn-instalar"><span>Ajuda para instalar</span></a>
+          <a class="btn btn-ghost" href="#download"><span>Baixar o app</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Sandieh Moreira · Testador Mobile</p>
+    <p><a href="../" class="footer-back">← sandieh.online</a></p>
+  </footer>
+
+  <script src="testador.js?v=1"></script>
+</body>
+</html>

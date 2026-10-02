@@ -1,0 +1,3 @@
+e03f813879c765c5d9f0e711433b9e086fb668d376ed05d8118160fb72a1c257  Testador-Mobile-Motorola.apk
+ff466d68f38a08a5c13fc33992665bc6764ae0ae808bdb548526e34e688b12d5  Testador-Mobile-Samsung.apk
+b87d21ad65894b4b501f2038d466b45219f0e7a2b4566aca0d247303bf33d71e  Testador-Mobile-Xiaomi.apk
