@@ -391,7 +391,7 @@ $$(".mission-cta").forEach((a) =>
     .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
     .then((repos) => {
       // OS-App e MestreScan já aparecem nos cards de destaque acima da grade
-      const list = repos.filter((r) => !r.fork && !["os-app", "mestrescan"].includes(r.name));
+      const list = repos.filter((r) => !r.fork && !["os-app", "mestrescan"].includes(r.name.toLowerCase()));
       render(list.length ? list : FALLBACK);
     })
     .catch(() => render(FALLBACK));
