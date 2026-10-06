@@ -1,0 +1,4 @@
+# APKs do Testador com os nomes antigos (0.1.x) -> nomes novos (0.2.0+)
+/testador/Testador-Mobile-Motorola.apk /testador/Testador-Mobile-M.apk 301
+/testador/Testador-Mobile-Samsung.apk /testador/Testador-Mobile-S.apk 301
+/testador/Testador-Mobile-Xiaomi.apk /testador/Testador-Mobile-X.apk 301

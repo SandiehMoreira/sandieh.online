@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testador Mobile — teste seu celular novo | Sandieh Moreira</title>
-  <meta name="description" content="Teste seu celular novo em 5 minutos: tela, som, câmeras, sensores, bateria e laudo em PDF. Motorola, Samsung, Xiaomi e iPhone." />
+  <meta name="description" content="Teste seu celular novo em 5 minutos: tela, som, câmeras, sensores, bateria e laudo em PDF. Para Android e iPhone." />
   <meta name="theme-color" content="#05070a" />
   <meta property="og:title" content="Testador Mobile — teste seu celular novo em 5 minutos" />
   <meta property="og:description" content="Descubra defeitos enquanto ainda dá para trocar. Laudo PDF com data e hora." />
@@ -38,6 +38,11 @@
     #como-usar .app-card::before { display: none; }
     .sha { font-family: var(--font-mono); font-size: 11px; color: var(--muted); word-break: break-all; }
     .dl-note { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+    /* Ícone das versões: a letra em branco sobre a cor de cada uma. */
+    .dl-icon.letter {
+      background: var(--c); color: #fff; border-color: var(--c);
+      font: 700 22px/1 var(--font-mono); display: grid; place-items: center;
+    }
   </style>
 </head>
 <body class="page-project">
@@ -74,7 +79,7 @@
           <strong>laudo em PDF</strong> com data e hora.
         </p>
         <ul class="featured-platforms reveal" aria-label="Marcas">
-          <li>Motorola</li><li>Samsung</li><li>Xiaomi</li><li>iPhone</li>
+          <li>Testador M</li><li>Testador S</li><li>Testador X</li><li>iPhone</li>
         </ul>
         <div class="hero-actions reveal">
           <a href="#download" class="btn btn-primary"><span>Baixar grátis</span></a>
@@ -87,7 +92,7 @@
     <section id="download" class="section">
       <header class="section-head reveal">
         <span class="section-num">01</span>
-        <h2>Baixe o da <em>sua marca</em></h2>
+        <h2>Baixe a <em>sua versão</em></h2>
         <p class="section-cmd">$ ./testador --marca auto</p>
       </header>
       <article class="app-card reveal">
@@ -99,46 +104,40 @@
             <div>
               <p class="app-kicker">// FEITO POR MIM · GRÁTIS</p>
               <h3>Testador Mobile</h3>
-              <p class="app-version" id="app-version">Um app para cada marca, com os testes daquele aparelho</p>
+              <p class="app-version" id="app-version">Uma versão para cada linha de aparelhos</p>
             </div>
           </div>
           <p class="app-desc">
-            Cada marca tem o seu app, com testes próprios: <strong>gestos Moto</strong> no Motorola,
-            <strong>S Pen e Knox</strong> no Samsung, <strong>infravermelho e ROM</strong> no Xiaomi.
-            Baixe o da marca do seu celular — o botão certo já aparece destacado.
+            São três versões — <strong>M</strong>, <strong>S</strong> e <strong>X</strong> — cada uma com os testes
+            próprios daquela linha de aparelhos (gesto da lanterna, caneta, infravermelho, proteção do sistema, região da ROM…).
+            Baixe a do seu celular — o botão certo já aparece destacado.
           </p>
           <ul class="app-features">
             <li>24 a 27 testes, um por tela, com instrução simples</li>
             <li>Detecta armazenamento falso, Android maquiado e sistema modificado</li>
             <li>Laudo PDF para compartilhar no WhatsApp ou salvar</li>
-            <li>Não pede cadastro, não envia seus dados para ninguém</li>
+            <li>Grátis, com anúncios. Não pede cadastro e não guarda seus dados (<a href="privacidade.html">privacidade</a>)</li>
           </ul>
         </div>
 
         <div class="app-downloads">
-          <p class="app-dl-title">▼ Escolha a marca do celular</p>
+          <p class="app-dl-title">▼ Escolha a versão do seu celular</p>
 
-          <a class="dl" data-brand="motorola" href="Testador-Mobile-Motorola.apk" download>
-            <span class="dl-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M6.5 15.5L9 8l3 6 3-6 2.5 7.5"/></svg>
-            </span>
-            <span class="dl-text"><b>Motorola</b><small>APK · <span data-size="Testador-Mobile-Motorola.apk">2,5 MB</span></small></span>
+          <a class="dl" data-brand="motorola" href="Testador-Mobile-M.apk" download>
+            <span class="dl-icon letter" style="--c:#0E5A73" aria-hidden="true">M</span>
+            <span class="dl-text"><b>Testador Mobile M</b><small>para aparelhos Motorola · APK · <span data-size="Testador-Mobile-M.apk">4,2 MB</span></small></span>
             <span class="dl-arrow" aria-hidden="true">↓</span>
           </a>
 
-          <a class="dl" data-brand="samsung" href="Testador-Mobile-Samsung.apk" download>
-            <span class="dl-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M10 5h4M11 19h2"/></svg>
-            </span>
-            <span class="dl-text"><b>Samsung Galaxy</b><small>APK · <span data-size="Testador-Mobile-Samsung.apk">2,5 MB</span></small></span>
+          <a class="dl" data-brand="samsung" href="Testador-Mobile-S.apk" download>
+            <span class="dl-icon letter" style="--c:#1F3FAF" aria-hidden="true">S</span>
+            <span class="dl-text"><b>Testador Mobile S</b><small>para aparelhos Samsung · APK · <span data-size="Testador-Mobile-S.apk">4,2 MB</span></small></span>
             <span class="dl-arrow" aria-hidden="true">↓</span>
           </a>
 
-          <a class="dl" data-brand="xiaomi" href="Testador-Mobile-Xiaomi.apk" download>
-            <span class="dl-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 16V8h5a3 3 0 0 1 3 3v5M12 16v-5"/></svg>
-            </span>
-            <span class="dl-text"><b>Xiaomi · Redmi · POCO</b><small>APK · <span data-size="Testador-Mobile-Xiaomi.apk">2,5 MB</span></small></span>
+          <a class="dl" data-brand="xiaomi" href="Testador-Mobile-X.apk" download>
+            <span class="dl-icon letter" style="--c:#E8641B" aria-hidden="true">X</span>
+            <span class="dl-text"><b>Testador Mobile X</b><small>para Xiaomi, Redmi e POCO · APK · <span data-size="Testador-Mobile-X.apk">4,2 MB</span></small></span>
             <span class="dl-arrow" aria-hidden="true">↓</span>
           </a>
 
@@ -154,12 +153,12 @@
           <details class="app-howto" id="instalar">
             <summary>Como instalar no Android</summary>
             <ul>
-              <li><b>1.</b> Toque na sua marca acima. O arquivo baixa em segundos.</li>
+              <li><b>1.</b> Toque na versão do seu celular acima. O arquivo baixa em segundos.</li>
               <li><b>2.</b> Abra o arquivo baixado (aparece na notificação ou em <b>Arquivos › Downloads</b>).</li>
               <li><b>3.</b> O Android avisa que o app não vem da Play Store. Toque em <b>Configurações</b> e ligue <b>Permitir desta fonte</b> para o navegador que você usou. Volte e toque em <b>Instalar</b>.</li>
-              <li><b>Samsung:</b> se aparecer o aviso do Play Protect ou do Bloqueio Automático, toque em <b>Mais detalhes › Instalar assim mesmo</b>. O Bloqueio Automático (Configurações › Segurança) pode precisar ser desligado durante a instalação.</li>
-              <li><b>Xiaomi / Redmi / POCO:</b> o sistema pode pedir para esperar alguns segundos e confirmar mais de uma vez. Se aparecer <b>"Instalação bloqueada"</b>, toque em <b>Configurações</b> e permita o navegador. Desligue a <b>Proteção do sistema</b> só durante a instalação, se for pedido.</li>
-              <li><b>Motorola:</b> segue o padrão: <b>Configurações › Permitir desta fonte</b> e <b>Instalar</b>.</li>
+              <li><b>Celulares Samsung:</b> se aparecer o aviso do Play Protect ou do Bloqueio Automático, toque em <b>Mais detalhes › Instalar assim mesmo</b>. O Bloqueio Automático (Configurações › Segurança) pode precisar ser desligado durante a instalação.</li>
+              <li><b>Celulares Xiaomi / Redmi / POCO:</b> o sistema pode pedir para esperar alguns segundos e confirmar mais de uma vez. Se aparecer <b>"Instalação bloqueada"</b>, toque em <b>Configurações</b> e permita o navegador. Desligue a <b>Proteção do sistema</b> só durante a instalação, se for pedido.</li>
+              <li><b>Celulares Motorola:</b> segue o padrão: <b>Configurações › Permitir desta fonte</b> e <b>Instalar</b>.</li>
             </ul>
           </details>
 
@@ -227,7 +226,7 @@
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Sandieh Moreira · Testador Mobile</p>
+    <p>© <span id="year"></span> Sandieh Moreira · Testador Mobile · <a href="privacidade.html">Privacidade</a></p>
     <p><a href="../" class="footer-back">← sandieh.online</a></p>
   </footer>
 

@@ -1,14 +1,14 @@
 {
-  "Testador-Mobile-Motorola.apk": {
-    "sha256": "e03f813879c765c5d9f0e711433b9e086fb668d376ed05d8118160fb72a1c257",
-    "mb": 2.6
+  "Testador-Mobile-M.apk": {
+    "sha256": "2a146fa19c22a1495b4182ff982c80d3550a2f062b07f81d3dc37439ec51e034",
+    "mb": 4.4
   },
-  "Testador-Mobile-Samsung.apk": {
-    "sha256": "ff466d68f38a08a5c13fc33992665bc6764ae0ae808bdb548526e34e688b12d5",
-    "mb": 2.6
+  "Testador-Mobile-S.apk": {
+    "sha256": "2e69215f490f78369b20ca300eaf93823e979835792c528293a3404f259ca07e",
+    "mb": 4.4
   },
-  "Testador-Mobile-Xiaomi.apk": {
-    "sha256": "b87d21ad65894b4b501f2038d466b45219f0e7a2b4566aca0d247303bf33d71e",
-    "mb": 2.6
+  "Testador-Mobile-X.apk": {
+    "sha256": "f50307fe8dad4fa754fa336de3ffe22cf9bb57ad0dcb1be66ac2fa0362abb2e6",
+    "mb": 4.4
   }
 }
