@@ -812,6 +812,14 @@ a.dl:hover .dl-arrow { transform: translateY(3px); }
 .scan-note b { color: var(--text); font-weight: 600; }
 .scan-shots img { border-color: #16181b; }
 
+/* Variante: MestreScan PC — espelhado, janela do programa + anúncio pego no celular */
+.featured-scanpc {
+  grid-template-columns: 1fr 1.05fr;
+  background: radial-gradient(circle at 15% 50%, rgba(255,59,63,.14), transparent 55%), linear-gradient(225deg, rgba(224,178,58,.08), transparent 50%), var(--panel);
+}
+.featured-scanpc:hover .browser { transform: translateY(-52%) translateX(-6px); }
+.featured-scanpc:hover .site-phone { transform: translateY(-10px) rotate(-3deg); }
+
 /* Variante: Testador Mobile (laudo ilustrativo) */
 .featured-test {
   border-color: rgba(0,229,255,.5);
@@ -898,7 +906,7 @@ body.page-project { overflow-x: hidden; }
 @media (max-width: 1024px) {
   .featured { grid-template-columns: 1fr; padding: 32px 24px; }
   .featured-shots { height: 300px; }
-  .featured-site .site-shots { order: 2; height: 300px; }
+  .featured-site .site-shots, .featured-scanpc .site-shots { order: 2; height: 300px; }
   .project-hero { grid-template-columns: 1fr; min-height: 0; padding-top: 120px; }
   .project-hero-phones { height: 480px; max-width: 560px; width: 100%; margin: 0 auto; }
   .feat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -908,7 +916,7 @@ body.page-project { overflow-x: hidden; }
   .featured-shots { height: 250px; }
   .featured-shots img { width: 110px; border-radius: 14px; border-width: 4px; }
   .featured-shots img:nth-child(2) { width: 124px; }
-  .featured-site .site-shots { height: 230px; }
+  .featured-site .site-shots, .featured-scanpc .site-shots { height: 230px; }
   .scan-feats { grid-template-columns: 1fr; }
   .scan-actions .btn { flex: 1 1 100%; }
   .site-phone { width: 92px; border-radius: 17px; padding: 4px; }
