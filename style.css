@@ -810,6 +810,7 @@ a.dl:hover .dl-arrow { transform: translateY(3px); }
 .scan-dl::before { background: #f5d77a; }
 .scan-note { margin: 0; font-size: 13px; line-height: 1.55; color: var(--muted); max-width: 520px; }
 .scan-note b { color: var(--text); font-weight: 600; }
+.scan-note a { color: #f5d77a; text-decoration: underline; text-underline-offset: 2px; }
 .scan-shots img { border-color: #16181b; }
 
 /* Variante: MestreScan PC — espelhado, janela do programa + anúncio pego no celular */
